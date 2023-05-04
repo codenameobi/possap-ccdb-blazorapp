@@ -1,0 +1,247 @@
+﻿@page "/dashboard"
+@using System.Text.Json;
+@using System.Net.Http.Headers;
+@using Blazored.LocalStorage;
+@using POSSAP_CCDB.Data.Response;
+@using POSSAP_CCDB.Data.State;
+@using POSSAP_CCDB.Interface;
+@using POSSAP_CCDB.Widgets
+
+@inject IHttpClientFactory ClientFactory
+@inject ILocalStorageService localStorage
+@inject HttpClient httpClient
+@inject AppUser AppUser
+@inject IDashboardService dashboardService
+
+    <section class="main">
+        <div class="content_bar_container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="d-flex flex-column">
+                        <h3 class="content_bar_title">Hello @AppUser.fullName </h3>
+                        <p class="content_bar_subtitle">Here are your confidential information of convicts in the country.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="d-flex justify-content-end">
+                    <a href="/add_convict">
+                        <button class="content_bar_btn">
+                            <img src="img/add-51255311.svg" alt="btn">Add Convict Record
+                        </button>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="d-flex justify-content-between align-items-end">
+                <h3 class="convict_text">MY CONVICTS DATA</h3>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-between mt-3 ">
+            <div class="col-lg-12 mb-3 col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-md-9 col-sm-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="dataEntryCard">
+                                    <img src="img/cont-c842ac58.svg" alt="icon"
+                                         class="managerImg" height="55" width="55">
+                                    <div>
+                                        <h3 class="card_total" style="color: rgb(16, 16, 16);">8</h3>
+                                        <h3 class="card_title" style="color: rgb(113, 113, 113);">Total Convicts</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dataEntryCard">
+                                    <img src="img/male-cc0644b6.svg" alt="icon"
+                                         class="managerImg" height="55" width="55">
+                                    <div>
+                                        <h3 class="card_total" style="color: rgb(16, 16, 16);">8</h3>
+                                        <h3 class="card_title" style="color: rgb(113, 113, 113);">Total Male Convicts</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dataEntryCard">
+                                    <img src="img/female-f4ff2736.svg" alt="icon"
+                                         class="managerImg" height="55" width="55">
+                                    <div>
+                                        <h3 class="card_total" style="color: rgb(16, 16, 16);">0</h3>
+                                        <h3 class="card_title" style="color: rgb(113, 113, 113);">Total Female Convicts</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dataEntryCard">
+                                    <img src="img/pendingI-ee2b890b.svg" alt="icon"
+                                         class="managerImg" height="55" width="55">
+                                    <div>
+                                        <h3 class="card_total" style="color: rgb(16, 16, 16);">5</h3>
+                                        <h3 class="card_title" style="color: rgb(113, 113, 113);">Pending Data Entry</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dataEntryCard">
+                                    <img src="img/dbI-3bf0b871.svg" alt="icon"
+                                         class="managerImg" height="55" width="55">
+                                    <div>
+                                        <h3 class="card_total" style="color: rgb(16, 16, 16);">0</h3>
+                                        <h3 class="card_title" style="color: rgb(113, 113, 113);">Queried Data Entry</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dataEntryCard">
+                                    <img src="img/fileS-2c39b4b2.svg" alt="icon"
+                                         class="managerImg" height="55" width="55">
+                                    <div>
+                                        <h3 class="card_total" style="color: rgb(16, 16, 16);">0</h3>
+                                        <h3 class="card_title" style="color: rgb(113, 113, 113);">Successful Data Entry</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dataEntryCard">
+                                    <img src="img/moon-67e9518d.svg" alt="icon"
+                                         class="managerImg" height="55" width="55">
+                                    <div>
+                                        <h3 class="card_total" style="color: rgb(16, 16, 16);">3</h3>
+                                        <h3 class="card_title" style="color: rgb(113, 113, 113);">Incomplete Data Entry</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <div class="entryContainer">
+                            <div class="entrySum">
+                                <h3 class="managerSum">SUMMARY</h3>
+                                <p class="managerConvict">Convict Data Entry</p>
+                            </div>
+                            <div class="row mx-1 justify-content-center position-relative" style="top: -55px;">
+                                <div class="col-md-6 flex justify-content-center">
+                                    <div class="entry_card_container" style="background: rgb(35, 141, 255);">
+                                        <div class="d-flex flex-column w-100 justify-content-between">
+                                            <img src="img/history-b04659a2.svg" alt="icon" width="30" height="30">
+                                            <div class="d-flex flex-column justify-content-center align-items-center text-center">
+                                                <h3 class="card_total" style="color: rgb(255, 255, 255);">0</h3>
+                                                <p class="entryTitle" style="color: rgb(255, 255, 255);">Daily Data Entry</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mx-1 mb-1" style="margin-top: -30px;">
+                                <div class="col-md-6 mb-3">
+                                    <div class="entry_card_container" style="background: rgb(242, 147, 4);">
+                                        <div class="d-flex flex-column w-100 justify-content-between">
+                                            <img src="img/weekly-b3e816f6.svg" alt="icon" width="30" height="30">
+                                            <div class="d-flex flex-column justify-content-center align-items-center text-center">
+                                                <h3 class="card_total" style="color: rgb(255, 255, 255);">5</h3>
+                                                <p class="entryTitle" style="color: rgb(255, 255, 255);">Weekly Data Entry</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="entry_card_container" style="background: rgb(108, 158, 0);">
+                                        <div class="d-flex flex-column w-100 justify-content-between">
+                                            <img src="img/monthly-10257cd5.svg" alt="icon" width="30" height="30">
+                                            <div class="d-flex flex-column justify-content-center align-items-center text-center">
+                                                <h3 class="card_total" style="color: rgb(255, 255, 255);">8</h3>
+                                                <p class="entryTitle" style="color: rgb(255, 255, 255);">Monthly Data Entry</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-md-6 mb-4 col-sm-12">
+                <div class="box_card_container">
+                    <div class="box_card_header">
+                        <h3>Entries By Day of Week</h3>
+                        <div class="box_card_body"></div>
+                    </div>
+                    <div class="box_card_content">
+                        <div class="p-2">
+                            <canvas role="img" height="394" width="789"
+                                    style="display: block; box-sizing: border-box; height: 263px; width: 526px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <div class="col-md-6 col-sm-12">
+            <div class="box_card_container">
+                <div class="box_card_header">
+                    <h3>Recently Added Convicts</h3>
+                    <div class="box_card_body">
+                        <h5 class="view_all">View All</h5>
+                    </div>
+                </div>
+                <div class="box_card_content">
+                    <div class="p-2">
+                        <div class="ant-table-wrapper table-striped-rows css-j0nf2s">
+                            <div class="ant-spin-nested-loading css-j0nf2s">
+                                <div class="ant-spin-container">
+                                    <div class="ant-table">
+                                        <div class="ant-table-container">
+                                            <div class="ant-table-content">
+                                                <table style="table-layout: auto;">
+                                                    <colgroup></colgroup>
+                                                    <thead class="ant-table-thead">
+                                                        <tr>
+                                                            <th class="ant-table-cell" scope="col">Name</th>
+                                                            <th class="ant-table-cell" scope="col">Gender</th>
+                                                            <th class="ant-table-cell" scope="col">Prison</th>
+                                                            <th class="ant-table-cell" scope="col">Prison State </th>
+                                                            <th class="ant-table-cell" scope="col">Date Of Conviction</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="ant-table-tbody">
+                                                        @foreach (var convict in convictList)
+                                                        {
+                                                            <tr class="ant-table-row ant-table-row-level-0">
+                                                                <td class="ant-table-cell">@convict.Name</td>
+                                                                <td class="ant-table-cell">@convict.Gender</td>
+                                                                <td class="ant-table-cell"><a>@convict.Prison</a></td>
+                                                                <td class="ant-table-cell"><a>@convict.PrisonState</a></td>
+                                                                <td class="ant-table-cell"><a>@convict.DateOfConviction</a></td>
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+
+
+@code {
+    public List<GetTenRecentConvictsResponse> convictList = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        convictList = await dashboardService.GetTenRecentConvictsAsync();
+    }
+}

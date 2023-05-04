@@ -1,0 +1,149 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\POSSAP-CCDB.bundle.scp.css",
+      "PackagePath": "staticwebassets\\POSSAP-CCDB.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\css\\open-iconic\\README.md",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\css\\stylesheet.css",
+      "PackagePath": "staticwebassets\\css\\stylesheet.css"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\img\\Logo-b027f9da.svg",
+      "PackagePath": "staticwebassets\\img\\Logo-b027f9da.svg"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\img\\PossapLogo.svg",
+      "PackagePath": "staticwebassets\\img\\PossapLogo.svg"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\img\\add-51255311.svg",
+      "PackagePath": "staticwebassets\\img\\add-51255311.svg"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\img\\cont-c842ac58.svg",
+      "PackagePath": "staticwebassets\\img\\cont-c842ac58.svg"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\img\\dbI-3bf0b871.svg",
+      "PackagePath": "staticwebassets\\img\\dbI-3bf0b871.svg"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\img\\expand_more-2cf8345c.svg",
+      "PackagePath": "staticwebassets\\img\\expand_more-2cf8345c.svg"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\img\\female-f4ff2736.svg",
+      "PackagePath": "staticwebassets\\img\\female-f4ff2736.svg"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\img\\fileS-2c39b4b2.svg",
+      "PackagePath": "staticwebassets\\img\\fileS-2c39b4b2.svg"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\img\\history-b04659a2.svg",
+      "PackagePath": "staticwebassets\\img\\history-b04659a2.svg"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\img\\lock-ad92bcda.svg",
+      "PackagePath": "staticwebassets\\img\\lock-ad92bcda.svg"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\img\\mail-f98b4767.svg",
+      "PackagePath": "staticwebassets\\img\\mail-f98b4767.svg"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\img\\male-cc0644b6.svg",
+      "PackagePath": "staticwebassets\\img\\male-cc0644b6.svg"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\img\\monthly-10257cd5.svg",
+      "PackagePath": "staticwebassets\\img\\monthly-10257cd5.svg"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\img\\moon-67e9518d.svg",
+      "PackagePath": "staticwebassets\\img\\moon-67e9518d.svg"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\img\\pendingI-ee2b890b.svg",
+      "PackagePath": "staticwebassets\\img\\pendingI-ee2b890b.svg"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\img\\user-ec5ba1b4.svg",
+      "PackagePath": "staticwebassets\\img\\user-ec5ba1b4.svg"
+    },
+    {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\img\\weekly-b3e816f6.svg",
+      "PackagePath": "staticwebassets\\img\\weekly-b3e816f6.svg"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.POSSAP-CCDB.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.POSSAP-CCDB.props",
+      "PackagePath": "build\\POSSAP-CCDB.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.POSSAP-CCDB.props",
+      "PackagePath": "buildMultiTargeting\\POSSAP-CCDB.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.POSSAP-CCDB.props",
+      "PackagePath": "buildTransitive\\POSSAP-CCDB.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

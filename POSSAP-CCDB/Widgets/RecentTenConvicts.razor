@@ -1,0 +1,96 @@
+﻿@using Blazored.LocalStorage;
+@using System.Net.Http.Headers;
+@using System.Text.Json;
+
+@inject ILocalStorageService localStorage
+@inject HttpClient httpClient
+
+<div class="col-md-6 col-sm-12">
+    <div class="box_card_container">
+        <div class="box_card_header">
+            <h3>Recently Added Convicts</h3>
+            <div class="box_card_body">
+                <h5 class="view_all">View All</h5>
+            </div>
+        </div>
+        <div class="box_card_content">
+            <div class="p-2">
+                <div class="ant-table-wrapper table-striped-rows css-j0nf2s">
+                    <div class="ant-spin-nested-loading css-j0nf2s">
+                        <div class="ant-spin-container">
+                            <div class="ant-table">
+                                <div class="ant-table-container">
+                                    <div class="ant-table-content">
+                                        <table style="table-layout: auto;">
+                                            <colgroup></colgroup>
+                                            <thead class="ant-table-thead">
+                                                <tr>
+                                                    <th class="ant-table-cell" scope="col">Name</th>
+                                                    <th class="ant-table-cell" scope="col">Gender</th>
+                                                    <th class="ant-table-cell" scope="col">Prison</th>
+                                                    <th class="ant-table-cell" scope="col">Prison State </th>
+                                                    <th class="ant-table-cell" scope="col">Date Of Conviction</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="ant-table-tbody">
+                                                @foreach (var convict in convictList)
+                                                {
+                                                    <tr class="ant-table-row ant-table-row-level-0">
+                                                        <td class="ant-table-cell">@convict.Name</td>
+                                                        <td class="ant-table-cell">@convict.Gender</td>
+                                                        <td class="ant-table-cell"><a>@convict.Prison</a></td>
+                                                        <td class="ant-table-cell"><a>@convict.PrisonState</a></td>
+                                                        <td class="ant-table-cell"><a>@convict.DateOfConviction</a></td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    public class GetTenRecentConvictsResponse
+    {
+        public string Name { get; set; }
+        public string Gender { get; set; }
+        public string Prison { get; set; }
+        public string PrisonState { get; set; }
+        public string Country { get; set; }
+        public string DateOfConviction { get; set; }
+        public string CreatedAt { get; set; }
+    }
+
+
+    public List<GetTenRecentConvictsResponse> convictList = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var accessToken = await GetAccessToken();
+        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+        var response = await httpClient.GetAsync("https://localhost:44380/api/Dashboard/recent-added-convicts");
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception("Failed to fetch access token.");
+        }
+
+        var responseContent = await response.Content.ReadFromJsonAsync<GetTenRecentConvictsResponse>();
+
+       
+    }
+
+    private async Task<string> GetAccessToken()
+    {
+        return await localStorage.GetItemAsync<string>("access_token");
+    }
+}
