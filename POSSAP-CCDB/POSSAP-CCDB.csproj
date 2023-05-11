@@ -8,12 +8,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\NewFolder1\" />
-    <Folder Include="wwwroot\NewFolder\" />
+    <Compile Remove="Data\DummyData\**" />
+    <Compile Remove="wwwroot\NewFolder1\**" />
+    <Compile Remove="wwwroot\NewFolder\**" />
+    <Content Remove="Data\DummyData\**" />
+    <Content Remove="wwwroot\NewFolder1\**" />
+    <Content Remove="wwwroot\NewFolder\**" />
+    <EmbeddedResource Remove="Data\DummyData\**" />
+    <EmbeddedResource Remove="wwwroot\NewFolder1\**" />
+    <EmbeddedResource Remove="wwwroot\NewFolder\**" />
+    <None Remove="Data\DummyData\**" />
+    <None Remove="wwwroot\NewFolder1\**" />
+    <None Remove="wwwroot\NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Blazored.LocalStorage" Version="4.3.0" />
+    <PackageReference Include="Fluxor.Blazor.Web" Version="5.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 

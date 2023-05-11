@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JD4RwLds31kFPsegvrJyuw0S18ggCKfJibUOXLJt/yo=",
+  "Hash": "Q9Bzl1kP0/uUtUxeqMuH2WyM5UHUphckaiTgNMNnf0E=",
   "Source": "POSSAP-CCDB",
   "BasePath": "_content/POSSAP-CCDB",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\css\\custom-css.css",
+      "SourceId": "POSSAP-CCDB",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\",
+      "BasePath": "_content/POSSAP-CCDB",
+      "RelativePath": "css/custom-css.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\custom-css.css"
     },
     {
       "Identity": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",

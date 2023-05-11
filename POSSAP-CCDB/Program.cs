@@ -7,6 +7,7 @@ using Microsoft.JSInterop;
 using POSSAP_CCDB.Interface;
 using POSSAP_CCDB.Services;
 using System.Net.Http.Headers;
+using Fluxor;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +18,11 @@ builder.Services.AddSingleton<WeatherForecastService>();
 
 builder.Services.AddHttpClient();
 builder.Services.AddBlazoredLocalStorage();
+
+builder.Services.AddFluxor(options => options.ScanAssemblies(typeof(Program).Assembly));
+
 builder.Services.AddScoped<AppUser>();
+builder.Services.AddScoped<UserState>();
 builder.Services.AddScoped<LocalStorageService>();
 builder.Services.AddScoped<IDashboardService, DashboardService>();
 

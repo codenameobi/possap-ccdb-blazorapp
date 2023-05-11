@@ -1,0 +1,96 @@
+{
+  "message": "Records found",
+  "status": "OK",
+  "data": [
+    {
+      "name": "John Doed Jane",
+      "gender": "Female",
+      "prison": "Federal Prison, Yola",
+      "prisonState": "Adamawa",
+      "country": "Nigeria",
+      "dateOfConviction": "2023-05-01 00:00:00",
+      "createdAt": "2023-05-02 12:57:37.263872"
+    },
+    {
+      "name": "Jonh Doe",
+      "gender": "Female",
+      "prison": "Corolla",
+      "prisonState": "Adamawa",
+      "country": "Nauru",
+      "dateOfConviction": "2023-04-05 00:00:00",
+      "createdAt": "2023-04-27 17:27:43.348476"
+    },
+    {
+      "name": "D Asdfasdf",
+      "gender": "Male",
+      "prison": "Federal Prison, Misau",
+      "prisonState": "Bauchi",
+      "country": "Nigeria",
+      "dateOfConviction": "2022-07-25 00:00:00",
+      "createdAt": "2023-04-25 14:01:33.653066"
+    },
+    {
+      "name": "John Doed",
+      "gender": "Male",
+      "prison": "Darazo Satellite Prison, Bauchi",
+      "prisonState": "Bauchi",
+      "country": "Nigeria",
+      "dateOfConviction": "2023-04-19 00:00:00",
+      "createdAt": "2023-04-25 11:33:06.144446"
+    },
+    {
+      "name": "Obinna Ibeh",
+      "gender": "Male",
+      "prison": "Federal Prison, Eket",
+      "prisonState": "Akwa Ibom",
+      "country": "Nigeria",
+      "dateOfConviction": "2023-04-05 00:00:00",
+      "createdAt": "2023-04-25 11:18:36.452344"
+    },
+    {
+      "name": "Dfsadf Sdf",
+      "gender": "Male",
+      "prison": "Old Kebbi Prison",
+      "prisonState": "Bauchi",
+      "country": "Nigeria",
+      "dateOfConviction": "2023-04-01 00:00:00",
+      "createdAt": "2023-04-25 11:08:50.380652"
+    },
+    {
+      "name": "Fa Dfaf",
+      "gender": "Male",
+      "prison": "dsf asdf",
+      "prisonState": "Anambra",
+      "country": "Nigeria",
+      "dateOfConviction": "2023-04-01 00:00:00",
+      "createdAt": "2023-04-25 09:55:11.072758"
+    },
+    {
+      "name": "Jacob Kayode",
+      "gender": "Male",
+      "prison": "Medium Security Prison, Kirikiri",
+      "prisonState": "Lagos",
+      "country": "Nigeria",
+      "dateOfConviction": "2020-12-12 00:00:00",
+      "createdAt": "2023-04-25 09:54:45.95599"
+    },
+    {
+      "name": "Lasisi Elenu Comedian",
+      "gender": "Male",
+      "prison": "Federal Prison, Aba",
+      "prisonState": "Imo",
+      "country": "Nigeria",
+      "dateOfConviction": "2023-04-25 07:17:33.52",
+      "createdAt": "2023-04-25 08:23:37.539982"
+    },
+    {
+      "name": "SALIU KOLAWOLE",
+      "gender": "male",
+      "prison": "Federal Prison, Lafiagi",
+      "prisonState": "Kwara",
+      "country": "Nigeria",
+      "dateOfConviction": "1959-11-03 00:00:00",
+      "createdAt": "2023-04-22 09:22:41.447061"
+    }
+  ]
+}

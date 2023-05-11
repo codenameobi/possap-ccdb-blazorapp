@@ -1,81 +1,11 @@
-﻿@inherits LayoutComponentBase
+﻿@using POSSAP_CCDB.Shared.Components
+@inherits LayoutComponentBase
 
 <PageTitle>POSSAP-CCDB</PageTitle>
 
 <div class="page">
-    <section class="topbar_container">
-        <header class="custom_container">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a aria-current="page" class="active"
-                   href="https://ccdb-admin.ogtlprojects.com/">
-                    <figure><img src="img/Logo-b027f9da.svg" width="62" alt="possap logo" height="62"></figure>
-                </a><button aria-controls="basic-navbar-nav" type="button" aria-label="Toggle navigation"
-                            class="navbar-toggler collapsed">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="  navbar-collapse collapse" id="basic-navbar-nav">
-                    <div class="mr-auto w-100 navbar-nav">
-                        <div class="col-md-10 topBar__list">
-                            <div class="nav-item">
-                                <a aria-current="page"
-                                   class="nav-link topBar_main_titles d-flex align-items-center active active"
-                                   href="https://ccdb-admin.ogtlprojects.com/">Dashboard</a>
-                            </div>
-                            <li class="dropdown nav-item">
-                                <a aria-haspopup="true" href="https://ccdb-admin.ogtlprojects.com/#"
-                                   class="nav-link topBar_main_titles d-flex align-items-center  dropdown-toggle nav-link"
-                                   aria-expanded="false">Data Entries</a>
-                                <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-end">
-                                    <button type="button" tabindex="0" role="menuitem" class="dropdown-item">
-                                        <a class="nav-link topBar_main_titles d-flex align-items-center "
-                                           href="https://ccdb-admin.ogtlprojects.com/data_entry">Convict Data</a>
-                                    </button>
-                                    <button type="button" tabindex="0" role="menuitem" class="dropdown-item">
-                                        <a class="nav-link topBar_main_titles d-flex align-items-center "
-                                           href="https://ccdb-admin.ogtlprojects.com/queried_case_data">
-                                            Queried Case
-                                            Histories
-                                        </a>
-                                    </button>
-                                    <button type="button" tabindex="0" role="menuitem"
-                                                     class="dropdown-item">
-                                        <a class="nav-link topBar_main_titles d-flex align-items-center "
-                                           href="https://ccdb-admin.ogtlprojects.com/queried_convicts_data">
-                                            Queried Convicts
-                                            Histories
-                                        </a>
-                                    </button>
-                                </div>
-                            </li>
-                            <div class="nav-item">
-                                <a class="nav-link topBar_main_titles d-flex align-items-center "
-                                   href="https://ccdb-admin.ogtlprojects.com/settings">Settings</a>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="nav-item">
-                                <div class="d-flex smallView justify-content-end align-items-center gap-3 cursorPointer">
-                                    <figure style="margin-bottom: 0px;">
-                                        <img src="./POSSAP CCDB1_files/user-ec5ba1b4.svg" width="58"
-                                             alt="user" height="58">
-                                    </figure>
-                                    <h3 class="topBar_text">John Doe Smith</h3><img class="caret"
-                                                                                    src="./POSSAP CCDB1_files/expand_more-2cf8345c.svg" alt="caret" width="20" height="20">
-                                </div>
-                                <div class="custom_menu ">
-                                    <ul class="drops-menu">
-                                        <li class="drops_menu_item"><span>Add Convict</span></li>
-                                        <li class="drops_menu_item"><span>View Profile</span></li>
-                                        <li class="drops_menu_item"><span>Log out</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </header>
-    </section>
+
+    <TopHeader/>
 
     <main>
         <article class="content px-4">

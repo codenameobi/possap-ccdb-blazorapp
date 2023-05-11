@@ -1,9 +1,7 @@
-﻿@using Blazored.LocalStorage;
-@using System.Net.Http.Headers;
-@using System.Text.Json;
+﻿@using POSSAP_CCDB.Data.Response;
+@using POSSAP_CCDB.Interface;
 
-@inject ILocalStorageService localStorage
-@inject HttpClient httpClient
+@inject IDashboardService dashboardService
 
 <div class="col-md-6 col-sm-12">
     <div class="box_card_container">
@@ -33,15 +31,22 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="ant-table-tbody">
-                                                @foreach (var convict in convictList)
+                                                @if (convictList.data != null)
                                                 {
-                                                    <tr class="ant-table-row ant-table-row-level-0">
-                                                        <td class="ant-table-cell">@convict.Name</td>
-                                                        <td class="ant-table-cell">@convict.Gender</td>
-                                                        <td class="ant-table-cell"><a>@convict.Prison</a></td>
-                                                        <td class="ant-table-cell"><a>@convict.PrisonState</a></td>
-                                                        <td class="ant-table-cell"><a>@convict.DateOfConviction</a></td>
-                                                    </tr>
+                                                    @foreach (var convict in convictList.data)
+                                                    {
+                                                        <tr class="ant-table-row ant-table-row-level-0">
+                                                            <td class="ant-table-cell">@convict.name</td>
+                                                            <td class="ant-table-cell">@convict.gender</td>
+                                                            <td class="ant-table-cell"><a>@convict.prison</a></td>
+                                                            <td class="ant-table-cell"><a>@convict.prisonState</a></td>
+                                                            <td class="ant-table-cell"><a>@convict.dateOfConviction</a></td>
+                                                        </tr>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <p>Loading...</p>
                                                 }
                                             </tbody>
                                         </table>
@@ -57,40 +62,11 @@
 </div>
 
 @code {
-
-    public class GetTenRecentConvictsResponse
-    {
-        public string Name { get; set; }
-        public string Gender { get; set; }
-        public string Prison { get; set; }
-        public string PrisonState { get; set; }
-        public string Country { get; set; }
-        public string DateOfConviction { get; set; }
-        public string CreatedAt { get; set; }
-    }
-
-
-    public List<GetTenRecentConvictsResponse> convictList = new();
+    private GetTenRecentConvictsResponse convictList = new GetTenRecentConvictsResponse();
 
     protected override async Task OnInitializedAsync()
     {
-        var accessToken = await GetAccessToken();
-        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
-        var response = await httpClient.GetAsync("https://localhost:44380/api/Dashboard/recent-added-convicts");
-
-        if (!response.IsSuccessStatusCode)
-        {
-            throw new Exception("Failed to fetch access token.");
-        }
-
-        var responseContent = await response.Content.ReadFromJsonAsync<GetTenRecentConvictsResponse>();
-
-       
-    }
-
-    private async Task<string> GetAccessToken()
-    {
-        return await localStorage.GetItemAsync<string>("access_token");
-    }
+        convictList = await dashboardService.GetTenRecentConvictsAsync();
+    }  
 }

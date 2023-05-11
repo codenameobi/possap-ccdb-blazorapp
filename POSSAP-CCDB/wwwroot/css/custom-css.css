@@ -1,0 +1,17 @@
+/* Top NavBar */
+.navbar-nav > li{
+    padding-left:100px;
+    padding-right:100px;
+}
+
+#topheader .navbar-nav li.active > a {
+    color: var(--secondary-color)!important;
+    font-weight: 700;
+}
+
+/* .topBar__list {
+    display: flex;
+    gap: 10rem;
+    align-items: center;
+    justify-content: center;
+} */

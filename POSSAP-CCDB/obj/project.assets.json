@@ -14,6 +14,31 @@
           "lib/net7.0/Blazored.LocalStorage.dll": {}
         }
       },
+      "Fluxor/5.7.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
+        },
+        "compile": {
+          "lib/net7.0/Fluxor.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/Fluxor.dll": {}
+        }
+      },
+      "Fluxor.Blazor.Web/5.7.0": {
+        "type": "package",
+        "dependencies": {
+          "Fluxor": "5.7.0",
+          "Microsoft.AspNetCore.Components.Web": "7.0.0"
+        },
+        "compile": {
+          "lib/net7.0/Fluxor.Blazor.Web.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/Fluxor.Blazor.Web.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authorization/7.0.0": {
         "type": "package",
         "dependencies": {
@@ -248,6 +273,42 @@
         "icon.png",
         "lib/net6.0/Blazored.LocalStorage.dll",
         "lib/net7.0/Blazored.LocalStorage.dll"
+      ]
+    },
+    "Fluxor/5.7.0": {
+      "sha512": "zA7kyc8G0E+vCeu8uQRZzOFj/deWt1AGpGBTHDqS1+NSyGT611CRH0b4mWJmCf4N60KT+7/ycZOOF1rYLacPtQ==",
+      "type": "package",
+      "path": "fluxor/5.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fluxor-small-logo.png",
+        "fluxor.5.7.0.nupkg.sha512",
+        "fluxor.nuspec",
+        "lib/net5.0/Fluxor.dll",
+        "lib/net6.0/Fluxor.dll",
+        "lib/net7.0/Fluxor.dll",
+        "lib/netcoreapp3.1/Fluxor.dll",
+        "lib/netstandard2.0/Fluxor.dll",
+        "lib/netstandard2.1/Fluxor.dll"
+      ]
+    },
+    "Fluxor.Blazor.Web/5.7.0": {
+      "sha512": "bZPUXNtGNLSNNGMqBOFd0t4e4l3LH7jyra63xPYXI++ehbVg9343u9v9Mr+K8GjkvkxxFnGPzQX6I0CCHyk+cg==",
+      "type": "package",
+      "path": "fluxor.blazor.web/5.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fluxor-blazor-logo-small.png",
+        "fluxor.blazor.web.5.7.0.nupkg.sha512",
+        "fluxor.blazor.web.nuspec",
+        "lib/net5.0/Fluxor.Blazor.Web.dll",
+        "lib/net6.0/Fluxor.Blazor.Web.dll",
+        "lib/net7.0/Fluxor.Blazor.Web.dll",
+        "lib/netcoreapp3.1/Fluxor.Blazor.Web.dll",
+        "lib/netstandard2.0/Fluxor.Blazor.Web.dll",
+        "lib/netstandard2.1/Fluxor.Blazor.Web.dll"
       ]
     },
     "Microsoft.AspNetCore.Authorization/7.0.0": {
@@ -609,6 +670,7 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "Blazored.LocalStorage >= 4.3.0",
+      "Fluxor.Blazor.Web >= 5.7.0",
       "Newtonsoft.Json >= 13.0.3"
     ]
   },
@@ -661,6 +723,10 @@
             "target": "Package",
             "version": "[4.3.0, )"
           },
+          "Fluxor.Blazor.Web": {
+            "target": "Package",
+            "version": "[5.7.0, )"
+          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
@@ -685,7 +751,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

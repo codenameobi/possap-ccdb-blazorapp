@@ -4,6 +4,7 @@ namespace POSSAP_CCDB.Interface
 {
     public interface IDashboardService
     {
-        Task<List<GetTenRecentConvictsResponse>> GetTenRecentConvictsAsync();
+        Task<GetTenRecentConvictsResponse> GetTenRecentConvictsAsync();
+        Task<DEConvictReportCountsResponse> GetDataEntryConvictReportCounts();
     }
 }

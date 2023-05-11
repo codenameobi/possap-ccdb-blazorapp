@@ -1,16 +1,20 @@
-﻿@page "/login"
+﻿@page "/"
 @layout LoginLayout
 
 @using System.Text.Json
 @using System.Text.Json.Serialization
+@using Fluxor;
 @using Microsoft.Extensions.Logging;
 @using POSSAP_CCDB.Data;
 @using Blazored.LocalStorage;
 @using POSSAP_CCDB.Data.State;
+@using POSSAP_CCDB.Services;
 
 @inject IHttpClientFactory ClientFactory
 @inject ILocalStorageService localStorage
 @inject ILogger<Login> Logger
+
+@inject IDispatcher Dispatcher
 @inject NavigationManager navigationManager
 
 <div id="root">
@@ -66,8 +70,12 @@
 </div>
 
 @code {
+    //[Inject]
+    //private IState<UserState> UserState { get; set; }
 
     LoginModel user = new ();
+
+    public AppUser User { get; set; }
 
     private async Task SignIn()
     {
@@ -77,6 +85,9 @@
             var accessToken = await GetAccessTokenAsync(user);
             //await localStorage.SetAccessTokenAsync(accessToken);
             await SaveAccessToken(accessToken);
+
+            //Dispatcher.Dispatch(new UpdateUserAction(User));
+
             navigationManager.NavigateTo($"/dashboard");
         }
         catch (Exception ex)

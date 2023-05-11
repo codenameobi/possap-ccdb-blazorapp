@@ -1,5 +1,8 @@
 ﻿@page "/add_convict"
+@using POSSAP_CCDB.Data.Request;
+@using POSSAP_CCDB.Interface;
 @using POSSAP_CCDB.Shared.Components;
+
 
 <Slider_Heading />
 
@@ -10,8 +13,9 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="">
-                        <label for="exampleInputEmail1" class="form_label">Convict’s Full Name</label><input type="text" class="form-control form_inputMain" placeholder="John Doe" required="" id="fullName"
-                                                                                                             aria-describedby="emailHelp" name="fullName" value="" fdprocessedid="38lhqw">
+                        <label for="exampleInputEmail1" class="form_label">Convict’s Full Name</label>
+                        <input type="text" class="form-control form_inputMain" placeholder="John Doe" required="" id="fullName"
+                                aria-describedby="emailHelp" name="fullName" value="" fdprocessedid="38lhqw">
                         <p style="color: red; font-size: 12px;"></p>
                     </div>
                 </div>
@@ -958,5 +962,24 @@
 
 
 @code {
+    //private async task submitdata(createconvictrequest data)
+    //{
+    //    try
+    //    {
+    //        var result = await convictservice.addconvict(data);
 
+    //        if (result)
+    //        {
+    //            handle successful response
+    //        }
+    //        else
+    //        {
+    //             handle error response
+    //        }
+    //    }
+    //    catch
+    //    {
+    //        handle expection
+    //    }
+    //}
 }

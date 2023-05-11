@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "LsyMBhwMezWr2CV5f8UCWB+hkqLP+2FkqzsPv578R2QJzmPymNWcoMk/4uY3qc5QQkhWxmTwDNByJ3Lxh5vffw==",
+  "dgSpecHash": "b66tV/Vpb6Gl9FKIv4TZnO8CQTW26w/qdligmg1em5ewwjB1tQucR++P1F4Dubb3FlJt2MrlgJvC7psOyXZVdw==",
   "success": true,
   "projectFilePath": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\POSSAP-CCDB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\OGTL SD-0021\\.nuget\\packages\\blazored.localstorage\\4.3.0\\blazored.localstorage.4.3.0.nupkg.sha512",
+    "C:\\Users\\OGTL SD-0021\\.nuget\\packages\\fluxor\\5.7.0\\fluxor.5.7.0.nupkg.sha512",
+    "C:\\Users\\OGTL SD-0021\\.nuget\\packages\\fluxor.blazor.web\\5.7.0\\fluxor.blazor.web.5.7.0.nupkg.sha512",
     "C:\\Users\\OGTL SD-0021\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.0\\microsoft.aspnetcore.authorization.7.0.0.nupkg.sha512",
     "C:\\Users\\OGTL SD-0021\\.nuget\\packages\\microsoft.aspnetcore.components\\7.0.0\\microsoft.aspnetcore.components.7.0.0.nupkg.sha512",
     "C:\\Users\\OGTL SD-0021\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\7.0.0\\microsoft.aspnetcore.components.analyzers.7.0.0.nupkg.sha512",

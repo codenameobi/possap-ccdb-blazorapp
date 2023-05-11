@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
+      "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\css\\custom-css.css",
+      "PackagePath": "staticwebassets\\css\\custom-css.css"
+    },
+    {
       "Id": "C:\\Users\\OGTL SD-0021\\Documents\\POSSAP-CCDB\\POSSAP-CCDB\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "PackagePath": "staticwebassets\\css\\open-iconic"
     },

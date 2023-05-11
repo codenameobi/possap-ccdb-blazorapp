@@ -1,7 +1,7 @@
 ﻿namespace POSSAP_CCDB.Data
 {
-    public class User
-    {    
+    public class AppUser
+    {
         public string status { get; set; }
         public string userId { get; set; }
         public string token { get; set; }
