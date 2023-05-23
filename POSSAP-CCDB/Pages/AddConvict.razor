@@ -1,5 +1,6 @@
 ﻿@page "/add_convict"
 @using POSSAP_CCDB.Data.Request;
+@using POSSAP_CCDB.Data.Response;
 @using POSSAP_CCDB.Interface;
 @using POSSAP_CCDB.Shared.Components;
 
@@ -14,9 +15,8 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="">
                         <label for="exampleInputEmail1" class="form_label">Convict’s Full Name</label>
-                        <input type="text" class="form-control form_inputMain" placeholder="John Doe" required="" id="fullName"
-                                aria-describedby="emailHelp" name="fullName" value="" fdprocessedid="38lhqw">
-                        <p style="color: red; font-size: 12px;"></p>
+                        <InputText type="text" class="form-control form_inputMain" placeholder="John Doe"
+                                   id="FullName" required="" @bind-Value="@convict.FullName" />
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -27,481 +27,433 @@
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <input type="text" class="form-control form_inputMain" placeholder="1234567"
-                                       id="convictUniqueId" required="" aria-describedby="emailHelp" name="convictUniqueId" value=""
-                                       fdprocessedid="7xtnjr">
-                                <p style="color: red; font-size: 12px;"></p>
+                                <InputText type="text" class="form-control form_inputMain" placeholder="1234567"
+                                           id="convictUniqueId" required="" @bind-Value="@convict.ConvictUniqueId" />
                             </div>
                             <div class="col-6">
-                                <input type="text" class="form-control form_inputMain" name="nin"
-                                       placeholder="1234567" id="nin" value="" fdprocessedid="ehteud">
+                                <div class="col-6">
+                                    <InputText type="text" class="form-control form_inputMain" placeholder="1234567"
+                                               id="nin" required="" @bind-Value="@convict.NIN" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row form_row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="mb-3">
-                        <div class="row">
-                            <div class="col-6">
-                                <label for="exampleInputPassword1" class="form_label">Last Know Address</label>
-                            </div>
-                            <div class="col-6"><label for="exampleInputPassword1" class="form_label">Nationality</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <input type="text" class="form-control form_inputMain" placeholder="Enter Address"
-                                       id="knownAddress" aria-describedby="emailHelp" name="knownAddress" value=""
-                                       fdprocessedid="stveav">
-                                <p style="color: red; font-size: 12px;"></p>
-                            </div>
-                            <div class="col-6">
-                                <div class="ant-select ant-select-borderless form_label css-j0nf2s ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
-                                     name="nationality"
-                                     style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
-                                    <div class="ant-select-selector">
-                                        <span class="ant-select-selection-search">
-                                            <input type="search"
-                                                   autocomplete="off" class="ant-select-selection-search-input" role="combobox"
-                                                   aria-haspopup="listbox" aria-owns="rc_select_0_list" aria-autocomplete="list"
-                                                   aria-controls="rc_select_0_list" aria-activedescendant="rc_select_0_list_161" value=""
-                                                   id="rc_select_0" aria-expanded="false">
-                                        </span><span class="ant-select-selection-item"
-                                                     title="Nigeria">Nigeria</span>
-                                    </div><span class="ant-select-arrow" unselectable="on"
-                                                aria-hidden="true" style="user-select: none;">
-                                        <span role="img" aria-label="down"
-                                              class="anticon anticon-down ant-select-suffix">
-                                            <svg viewBox="64 64 896 896" focusable="false"
-                                                 data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true">
-                                                <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                    </span><span class="ant-select-clear" unselectable="on" aria-hidden="true"
-                                                 style="user-select: none;">
-                                        <span role="img" aria-label="close-circle"
-                                              class="anticon anticon-close-circle">
-                                            <svg viewBox="64 64 896 896" focusable="false"
-                                                 data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true">
-                                                <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                    </span>
+                <div class="row form_row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="exampleInputPassword1" class="form_label">Last Know Address</label>
                                 </div>
-                                <p style="color: red; font-size: 12px;"></p>
+                                <div class="col-6"><label for="exampleInputPassword1" class="form_label">Nationality</label></div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="mb-3">
-                        <div class="row">
-                            <div class="col-6"><label for="exampleInputPassword1" class="form_label">State</label></div>
-                            <div class="col-6 d-flex justify-content-between">
-                                <label for="exampleInputPassword1"
-                                       class="form_label">Tribe</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="ant-select ant-select-borderless form_label css-j0nf2s ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
-                                     name="state"
-                                     style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
-                                    <div class="ant-select-selector">
-                                        <span class="ant-select-selection-search">
-                                            <input type="search"
-                                                   autocomplete="off" class="ant-select-selection-search-input" role="combobox"
-                                                   aria-haspopup="listbox" aria-owns="rc_select_1_list" aria-autocomplete="list"
-                                                   aria-controls="rc_select_1_list" aria-activedescendant="rc_select_1_list_0" value=""
-                                                   id="rc_select_1">
-                                        </span><span class="ant-select-selection-placeholder">kano</span>
-                                    </div>
-                                    <span class="ant-select-arrow" unselectable="on" aria-hidden="true"
-                                          style="user-select: none;">
-                                        <span role="img" aria-label="down"
-                                              class="anticon anticon-down ant-select-suffix">
-                                            <svg viewBox="64 64 896 896" focusable="false"
-                                                 data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true">
-                                                <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                    </span>
+                            <div class="row">
+                                <div class="col-6">
+                                    <InputText type="text" class="form-control form_inputMain" placeholder=""
+                                               id="knownAddress" required="" @bind-Value="@convict.KnownAddress" />
                                 </div>
-                                <p style="color: red; font-size: 12px;"></p>
-                            </div>
-                            <div class="col-6">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="ant-select ant-select-borderless form_label css-j0nf2s ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
-                                             name="tribe"
-                                             style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
-                                            <div class="ant-select-selector">
-                                                <span class="ant-select-selection-search">
-                                                    <input type="search" autocomplete="off" class="ant-select-selection-search-input"
-                                                           role="combobox" aria-haspopup="listbox" aria-owns="rc_select_2_list"
-                                                           aria-autocomplete="list" aria-controls="rc_select_2_list"
-                                                           aria-activedescendant="rc_select_2_list_0" value="" id="rc_select_2">
-                                                </span><span class="ant-select-selection-placeholder">Igbo</span>
-                                            </div><span class="ant-select-arrow"
-                                                        unselectable="on" aria-hidden="true" style="user-select: none;">
-                                                <span role="img"
-                                                      aria-label="down" class="anticon anticon-down ant-select-suffix">
-                                                    <svg viewBox="64 64 896 896" focusable="false" data-icon="down" width="1em" height="1em"
-                                                         fill="currentColor" aria-hidden="true">
-                                                        <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-                                                        </path>
-                                                    </svg>
-                                                </span>
+                                <div class="col-6">
+                                    <div class="ant-select ant-select-borderless form_label css-j0nf2s ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                                         name="nationality"
+                                         style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
+                                        <div class="ant-select-selector">
+                                            <span class="ant-select-selection-search">
+                                                <Select @bind-SelectedValue="@selectedCountry">
+                                                    <SelectItem Value="1">One</SelectItem>
+                                                    <SelectItem Value="2">Two</SelectItem>
+                                                    <SelectItem Value="3">Three</SelectItem>
+                                                    <SelectItem Value="4">Four</SelectItem>
+                                                </Select>
+                                            </span>
+                                            <span class="ant-select-selection-item">
+
                                             </span>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-6"><label for="exampleInputPassword1" class="form_label">State</label></div>
+                                <div class="col-6 d-flex justify-content-between">
+                                    <label for="exampleInputPassword1"
+                                           class="form_label">Tribe</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="ant-select ant-select-borderless form_label css-j0nf2s ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                                         name="state"
+                                         style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
+                                        <div class="ant-select-selector">
+                                            <span class="ant-select-selection-search">
+                                                <InputText type="text" class="form-control form_inputMain" placeholder=""
+                                                           id="nationality" required="" @bind-Value="@convict.State" />
+                                            </span><span class="ant-select-selection-placeholder">kano</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="ant-select ant-select-borderless form_label css-j0nf2s ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                                                 name="tribe"
+                                                 style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
+                                                <div class="ant-select-selector">
+                                                    <span class="ant-select-selection-search">
+                                                        <InputText type="text" class="form-control form_inputMain" placeholder=""
+                                                                   id="nationality" required="" @bind-Value="@convict.Tribe" />
+                                                    </span><span class="ant-select-selection-placeholder">Igbo</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form_row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class=" ">
+                            <label for="exampleInputPassword1" class="form_label">Local Government</label>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="ant-select ant-select-borderless form_label  css-j0nf2s ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                         name="lgaId"
+                                         style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
+                                        <div class="ant-select-selector">
+                                            <span class="ant-select-selection-search">
+
+
+                                                <InputText type="text" class="form-control form_inputMain" placeholder=""
+                                                           id="nationality" required="" @bind-Value="@convict.Tribe" />
+                                            </span><span class="ant-select-selection-placeholder">Local Government</span>
+                                        </div><span class="ant-select-arrow" unselectable="on" aria-hidden="true" style="user-select: none;">
+                                            <span role="img" aria-label="down" class="anticon anticon-down ant-select-suffix">
+                                                <svg viewBox="64 64 896 896" focusable="false" data-icon="down" width="1em" height="1em"
+                                                     fill="currentColor" aria-hidden="true">
+                                                    <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class=" ">
+                            <label for="exampleInputPassword1" class="form_label">Ward</label>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="ant-select ant-select-borderless form_label css-j0nf2s ant-select-single ant-select-show-arrow"
+                                         name="wardId"
+                                         style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
+                                        <div class="ant-select-selector">
+                                            <span class="ant-select-selection-search">
+                                                <input type="search"
+                                                       autocomplete="off" class="ant-select-selection-search-input" role="combobox"
+                                                       aria-haspopup="listbox" aria-owns="rc_select_4_list" aria-autocomplete="list"
+                                                       aria-controls="rc_select_4_list" aria-activedescendant="rc_select_4_list_0" readonly=""
+                                                       unselectable="on" value="" style="opacity: 0;" id="rc_select_4">
+                                            </span><span class="ant-select-selection-placeholder">Ward</span>
+                                        </div><span class="ant-select-arrow"
+                                                    unselectable="on" aria-hidden="true" style="user-select: none;">
+                                            <span role="img"
+                                                  aria-label="down" class="anticon anticon-down ant-select-suffix">
+                                                <svg viewBox="64 64 896 896"
+                                                     focusable="false" data-icon="down" width="1em" height="1em" fill="currentColor"
+                                                     aria-hidden="true">
+                                                    <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form_row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-6"><label for="exampleInputPassword1" class="form_label">Date of birth</label></div>
+                                <div class="col-6"><label for="exampleInputPassword1" class="form_label">Gender</label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="date" class="form-control form_inputMain" placeholder=""
+                                           id="dateOfBirth" aria-describedby="emailHelp" name="dateOfBirth" value="">
+                                    <p style="color: red; font-size: 12px;"></p>
+                                </div>
+                                <div class="col-6">
+                                    <div class="ant-select ant-select-borderless form_label  css-j0nf2s ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                         name="gender"
+                                         style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
+                                        <div class="ant-select-selector">
+                                            <span class="ant-select-selection-search">
+                                                <input type="search"
+                                                       autocomplete="off" class="ant-select-selection-search-input" role="combobox"
+                                                       aria-haspopup="listbox" aria-owns="rc_select_5_list" aria-autocomplete="list"
+                                                       aria-controls="rc_select_5_list" aria-activedescendant="rc_select_5_list_0" readonly=""
+                                                       unselectable="on" value="" style="opacity: 0;" id="rc_select_5">
+                                            </span><span class="ant-select-selection-item" title="Male">Male</span>
+                                        </div><span class="ant-select-arrow"
+                                                    unselectable="on" aria-hidden="true" style="user-select: none;">
+                                            <span role="img"
+                                                  aria-label="down" class="anticon anticon-down ant-select-suffix">
+                                                <svg viewBox="64 64 896 896"
+                                                     focusable="false" data-icon="down" width="1em" height="1em" fill="currentColor"
+                                                     aria-hidden="true">
+                                                    <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </span><span class="ant-select-clear" unselectable="on" aria-hidden="true"
+                                                     style="user-select: none;">
+                                            <span role="img" aria-label="close-circle"
+                                                  class="anticon anticon-close-circle">
+                                                <svg viewBox="64 64 896 896" focusable="false"
+                                                     data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                                                    <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </span>
                                     </div>
                                     <p style="color: red; font-size: 12px;"></p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row form_row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class=" ">
-                        <label for="exampleInputPassword1" class="form_label">Local Government</label>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="ant-select ant-select-borderless form_label  css-j0nf2s ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                     name="lgaId"
-                                     style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
-                                    <div class="ant-select-selector">
-                                        <span class="ant-select-selection-search">
-                                            <input type="search"
-                                                   autocomplete="off" class="ant-select-selection-search-input" role="combobox"
-                                                   aria-haspopup="listbox" aria-owns="rc_select_3_list" aria-autocomplete="list"
-                                                   aria-controls="rc_select_3_list" aria-activedescendant="rc_select_3_list_0" readonly=""
-                                                   unselectable="on" value="" style="opacity: 0;" id="rc_select_3">
-                                        </span><span class="ant-select-selection-placeholder">Local Government</span>
-                                    </div><span class="ant-select-arrow" unselectable="on" aria-hidden="true" style="user-select: none;">
-                                        <span role="img" aria-label="down" class="anticon anticon-down ant-select-suffix">
-                                            <svg viewBox="64 64 896 896" focusable="false" data-icon="down" width="1em" height="1em"
-                                                 fill="currentColor" aria-hidden="true">
-                                                <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-                                                </path>
-                                            </svg>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-6"><label for="exampleInputPassword1" class="form_label">Place of Birth</label></div>
+                                <div class="col-6"><label for="exampleInputPassword1" class="form_label">Marks</label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="ant-select ant-select-borderless form_label css-j0nf2s ant-select-single ant-select-show-arrow"
+                                         name="placeOfBirth"
+                                         style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
+                                        <div class="ant-select-selector">
+                                            <span class="ant-select-selection-search">
+                                                <input type="search"
+                                                       autocomplete="off" class="ant-select-selection-search-input" role="combobox"
+                                                       aria-haspopup="listbox" aria-owns="rc_select_6_list" aria-autocomplete="list"
+                                                       aria-controls="rc_select_6_list" aria-activedescendant="rc_select_6_list_0" readonly=""
+                                                       unselectable="on" value="" style="opacity: 0;" id="rc_select_6">
+                                            </span><span class="ant-select-selection-placeholder">Kano</span>
+                                        </div><span class="ant-select-arrow"
+                                                    unselectable="on" aria-hidden="true" style="user-select: none;">
+                                            <span role="img"
+                                                  aria-label="down" class="anticon anticon-down ant-select-suffix">
+                                                <svg viewBox="64 64 896 896"
+                                                     focusable="false" data-icon="down" width="1em" height="1em" fill="currentColor"
+                                                     aria-hidden="true">
+                                                    <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
+                                                    </path>
+                                                </svg>
+                                            </span>
                                         </span>
-                                    </span>
+                                    </div>
+                                    <p style="color: red; font-size: 12px;"></p>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" class="form-control form_inputMain" placeholder="Nil" id="marks"
+                                           aria-describedby="emailHelp" name="marks" value="None" fdprocessedid="b2rx0g">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class=" ">
-                        <label for="exampleInputPassword1" class="form_label">Ward</label>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="ant-select ant-select-borderless form_label css-j0nf2s ant-select-single ant-select-show-arrow"
-                                     name="wardId"
-                                     style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
-                                    <div class="ant-select-selector">
-                                        <span class="ant-select-selection-search">
-                                            <input type="search"
-                                                   autocomplete="off" class="ant-select-selection-search-input" role="combobox"
-                                                   aria-haspopup="listbox" aria-owns="rc_select_4_list" aria-autocomplete="list"
-                                                   aria-controls="rc_select_4_list" aria-activedescendant="rc_select_4_list_0" readonly=""
-                                                   unselectable="on" value="" style="opacity: 0;" id="rc_select_4">
-                                        </span><span class="ant-select-selection-placeholder">Ward</span>
-                                    </div><span class="ant-select-arrow"
-                                                unselectable="on" aria-hidden="true" style="user-select: none;">
-                                        <span role="img"
-                                              aria-label="down" class="anticon anticon-down ant-select-suffix">
-                                            <svg viewBox="64 64 896 896"
-                                                 focusable="false" data-icon="down" width="1em" height="1em" fill="currentColor"
-                                                 aria-hidden="true">
-                                                <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-                                                </path>
-                                            </svg>
+                <div class="row form_row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="exampleInputPassword1" class="form_label">DNA Reference Number</label>
+                                </div>
+                                <div class="col-6"><label for="exampleInputPassword1" class="form_label">Marital Status</label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="text" class="form-control form_inputMain" placeholder="0800000000"
+                                           id="dnaReferenceNo" aria-describedby="emailHelp" name="dnaReferenceNo" value=""
+                                           fdprocessedid="sh1co7">
+                                </div>
+                                <div class="col-6">
+                                    <div class="ant-select ant-select-borderless form_label css-j0nf2s ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                         name="maritalStatus"
+                                         style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
+                                        <div class="ant-select-selector">
+                                            <span class="ant-select-selection-search">
+                                                <input type="search"
+                                                       autocomplete="off" class="ant-select-selection-search-input" role="combobox"
+                                                       aria-haspopup="listbox" aria-owns="rc_select_7_list" aria-autocomplete="list"
+                                                       aria-controls="rc_select_7_list" aria-activedescendant="rc_select_7_list_0" readonly=""
+                                                       unselectable="on" value="" style="opacity: 0;" id="rc_select_7"
+                                                       aria-expanded="false">
+                                            </span><span class="ant-select-selection-item"
+                                                         title="Single">Single</span>
+                                        </div><span class="ant-select-arrow" unselectable="on"
+                                                    aria-hidden="true" style="user-select: none;">
+                                            <span role="img" aria-label="down"
+                                                  class="anticon anticon-down ant-select-suffix">
+                                                <svg viewBox="64 64 896 896" focusable="false"
+                                                     data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                                                    <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </span><span class="ant-select-clear" unselectable="on" aria-hidden="true"
+                                                     style="user-select: none;">
+                                            <span role="img" aria-label="close-circle"
+                                                  class="anticon anticon-close-circle">
+                                                <svg viewBox="64 64 896 896" focusable="false"
+                                                     data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                                                    <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z">
+                                                    </path>
+                                                </svg>
+                                            </span>
                                         </span>
-                                    </span>
+                                    </div>
+                                    <p style="color: red; font-size: 12px;"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="exampleInputPassword1" class="form_label">Height Centimetres</label>
+                                </div>
+                                <div class="col-6">
+                                    <label for="exampleInputPassword1" class="form_label">
+                                        Weight in Kilogram (kg)
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="number" class="form-control form_inputMain" name="height"
+                                           placeholder="100cm" id="height" value="" fdprocessedid="vgs7qd">
+                                    <p style="color: red; font-size: 12px;"></p>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" class="form-control form_inputMain" placeholder="Kilogram (kg)"
+                                           id="weight" aria-describedby="emailHelp" name="weight" value="" fdprocessedid="li4wk">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row form_row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="mb-3">
-                        <div class="row">
-                            <div class="col-6"><label for="exampleInputPassword1" class="form_label">Date of birth</label></div>
-                            <div class="col-6"><label for="exampleInputPassword1" class="form_label">Gender</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <input type="date" class="form-control form_inputMain" placeholder=""
-                                       id="dateOfBirth" aria-describedby="emailHelp" name="dateOfBirth" value="">
-                                <p style="color: red; font-size: 12px;"></p>
+                <div class="row form_row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-6"><label for="exampleInputPassword1" class="form_label">Occupation</label></div>
+                                <div class="col-6"><label for="exampleInputPassword1" class="form_label">Phone Number</label></div>
                             </div>
-                            <div class="col-6">
-                                <div class="ant-select ant-select-borderless form_label  css-j0nf2s ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                     name="gender"
-                                     style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
-                                    <div class="ant-select-selector">
-                                        <span class="ant-select-selection-search">
-                                            <input type="search"
-                                                   autocomplete="off" class="ant-select-selection-search-input" role="combobox"
-                                                   aria-haspopup="listbox" aria-owns="rc_select_5_list" aria-autocomplete="list"
-                                                   aria-controls="rc_select_5_list" aria-activedescendant="rc_select_5_list_0" readonly=""
-                                                   unselectable="on" value="" style="opacity: 0;" id="rc_select_5">
-                                        </span><span class="ant-select-selection-item" title="Male">Male</span>
-                                    </div><span class="ant-select-arrow"
-                                                unselectable="on" aria-hidden="true" style="user-select: none;">
-                                        <span role="img"
-                                              aria-label="down" class="anticon anticon-down ant-select-suffix">
-                                            <svg viewBox="64 64 896 896"
-                                                 focusable="false" data-icon="down" width="1em" height="1em" fill="currentColor"
-                                                 aria-hidden="true">
-                                                <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                    </span><span class="ant-select-clear" unselectable="on" aria-hidden="true"
-                                                 style="user-select: none;">
-                                        <span role="img" aria-label="close-circle"
-                                              class="anticon anticon-close-circle">
-                                            <svg viewBox="64 64 896 896" focusable="false"
-                                                 data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true">
-                                                <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                    </span>
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="text" class="form-control form_inputMain" placeholder="Civil Servant"
+                                           id="occupation" aria-describedby="emailHelp" name="occupation" value="" fdprocessedid="tpclt7j">
+                                    <p style="color: red; font-size: 12px;"></p>
                                 </div>
-                                <p style="color: red; font-size: 12px;"></p>
+                                <div class="col-6">
+                                    <input type="text" class="form-control form_inputMain" placeholder="0800000000"
+                                           id="phoneNumber" aria-describedby="emailHelp" name="phoneNumber" value="" fdprocessedid="lb7b5c">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="mb-3">
-                        <div class="row">
-                            <div class="col-6"><label for="exampleInputPassword1" class="form_label">Place of Birth</label></div>
-                            <div class="col-6"><label for="exampleInputPassword1" class="form_label">Marks</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="ant-select ant-select-borderless form_label css-j0nf2s ant-select-single ant-select-show-arrow"
-                                     name="placeOfBirth"
-                                     style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
-                                    <div class="ant-select-selector">
-                                        <span class="ant-select-selection-search">
-                                            <input type="search"
-                                                   autocomplete="off" class="ant-select-selection-search-input" role="combobox"
-                                                   aria-haspopup="listbox" aria-owns="rc_select_6_list" aria-autocomplete="list"
-                                                   aria-controls="rc_select_6_list" aria-activedescendant="rc_select_6_list_0" readonly=""
-                                                   unselectable="on" value="" style="opacity: 0;" id="rc_select_6">
-                                        </span><span class="ant-select-selection-placeholder">Kano</span>
-                                    </div><span class="ant-select-arrow"
-                                                unselectable="on" aria-hidden="true" style="user-select: none;">
-                                        <span role="img"
-                                              aria-label="down" class="anticon anticon-down ant-select-suffix">
-                                            <svg viewBox="64 64 896 896"
-                                                 focusable="false" data-icon="down" width="1em" height="1em" fill="currentColor"
-                                                 aria-hidden="true">
-                                                <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-                                                </path>
-                                            </svg>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-6"><label for="exampleInputPassword1" class="form_label">Hair Colour</label></div>
+                                <div class="col-6"><label for="exampleInputPassword1" class="form_label">Colour of Eye</label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="ant-select ant-select-borderless form_label css-j0nf2s ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                         name="hairColour"
+                                         style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
+                                        <div class="ant-select-selector">
+                                            <span class="ant-select-selection-search">
+                                                <input type="search"
+                                                       autocomplete="off" class="ant-select-selection-search-input" role="combobox"
+                                                       aria-haspopup="listbox" aria-owns="rc_select_8_list" aria-autocomplete="list"
+                                                       aria-controls="rc_select_8_list" aria-activedescendant="rc_select_8_list_0" readonly=""
+                                                       unselectable="on" value="" style="opacity: 0;" id="rc_select_8">
+                                            </span><span class="ant-select-selection-item" title="Black">Black</span>
+                                        </div><span class="ant-select-arrow" unselectable="on" aria-hidden="true" style="user-select: none;">
+                                            <span role="img" aria-label="down" class="anticon anticon-down ant-select-suffix">
+                                                <svg viewBox="64 64 896 896" focusable="false" data-icon="down" width="1em" height="1em"
+                                                     fill="currentColor" aria-hidden="true">
+                                                    <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </span><span class="ant-select-clear" unselectable="on" aria-hidden="true"
+                                                     style="user-select: none;">
+                                            <span role="img" aria-label="close-circle"
+                                                  class="anticon anticon-close-circle">
+                                                <svg viewBox="64 64 896 896" focusable="false"
+                                                     data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                                                    <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z">
+                                                    </path>
+                                                </svg>
+                                            </span>
                                         </span>
-                                    </span>
+                                    </div>
+                                    <p style="color: red; font-size: 12px;"></p>
                                 </div>
-                                <p style="color: red; font-size: 12px;"></p>
-                            </div>
-                            <div class="col-6">
-                                <input type="text" class="form-control form_inputMain" placeholder="Nil" id="marks"
-                                       aria-describedby="emailHelp" name="marks" value="None" fdprocessedid="b2rx0g">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row form_row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="mb-3">
-                        <div class="row">
-                            <div class="col-6">
-                                <label for="exampleInputPassword1" class="form_label">DNA Reference Number</label>
-                            </div>
-                            <div class="col-6"><label for="exampleInputPassword1" class="form_label">Marital Status</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <input type="text" class="form-control form_inputMain" placeholder="0800000000"
-                                       id="dnaReferenceNo" aria-describedby="emailHelp" name="dnaReferenceNo" value=""
-                                       fdprocessedid="sh1co7">
-                            </div>
-                            <div class="col-6">
-                                <div class="ant-select ant-select-borderless form_label css-j0nf2s ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                     name="maritalStatus"
-                                     style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
-                                    <div class="ant-select-selector">
-                                        <span class="ant-select-selection-search">
-                                            <input type="search"
-                                                   autocomplete="off" class="ant-select-selection-search-input" role="combobox"
-                                                   aria-haspopup="listbox" aria-owns="rc_select_7_list" aria-autocomplete="list"
-                                                   aria-controls="rc_select_7_list" aria-activedescendant="rc_select_7_list_0" readonly=""
-                                                   unselectable="on" value="" style="opacity: 0;" id="rc_select_7"
-                                                   aria-expanded="false">
-                                        </span><span class="ant-select-selection-item"
-                                                     title="Single">Single</span>
-                                    </div><span class="ant-select-arrow" unselectable="on"
-                                                aria-hidden="true" style="user-select: none;">
-                                        <span role="img" aria-label="down"
-                                              class="anticon anticon-down ant-select-suffix">
-                                            <svg viewBox="64 64 896 896" focusable="false"
-                                                 data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true">
-                                                <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-                                                </path>
-                                            </svg>
+                                <div class="col-6">
+                                    <div class="ant-select ant-select-borderless form_label css-j0nf2s ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                         name="eyeColour"
+                                         style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
+                                        <div class="ant-select-selector">
+                                            <span class="ant-select-selection-search">
+                                                <input type="search"
+                                                       autocomplete="off" class="ant-select-selection-search-input" role="combobox"
+                                                       aria-haspopup="listbox" aria-owns="rc_select_9_list" aria-autocomplete="list"
+                                                       aria-controls="rc_select_9_list" aria-activedescendant="rc_select_9_list_0" readonly=""
+                                                       unselectable="on" value="" style="opacity: 0;" id="rc_select_9">
+                                            </span><span class="ant-select-selection-item" title="Black">Black</span>
+                                        </div><span class="ant-select-arrow" unselectable="on" aria-hidden="true" style="user-select: none;">
+                                            <span role="img" aria-label="down" class="anticon anticon-down ant-select-suffix">
+                                                <svg viewBox="64 64 896 896" focusable="false" data-icon="down" width="1em" height="1em"
+                                                     fill="currentColor" aria-hidden="true">
+                                                    <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </span><span class="ant-select-clear" unselectable="on" aria-hidden="true"
+                                                     style="user-select: none;">
+                                            <span role="img" aria-label="close-circle"
+                                                  class="anticon anticon-close-circle">
+                                                <svg viewBox="64 64 896 896" focusable="false"
+                                                     data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                                                    <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z">
+                                                    </path>
+                                                </svg>
+                                            </span>
                                         </span>
-                                    </span><span class="ant-select-clear" unselectable="on" aria-hidden="true"
-                                                 style="user-select: none;">
-                                        <span role="img" aria-label="close-circle"
-                                              class="anticon anticon-close-circle">
-                                            <svg viewBox="64 64 896 896" focusable="false"
-                                                 data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true">
-                                                <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                    </span>
+                                    </div>
+                                    <p style="color: red; font-size: 12px;"></p>
                                 </div>
-                                <p style="color: red; font-size: 12px;"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="mb-3">
-                        <div class="row">
-                            <div class="col-6">
-                                <label for="exampleInputPassword1" class="form_label">Height Centimetres</label>
-                            </div>
-                            <div class="col-6">
-                                <label for="exampleInputPassword1" class="form_label">
-                                    Weight in Kilogram (kg)
-                                </label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <input type="number" class="form-control form_inputMain" name="height"
-                                       placeholder="100cm" id="height" value="" fdprocessedid="vgs7qd">
-                                <p style="color: red; font-size: 12px;"></p>
-                            </div>
-                            <div class="col-6">
-                                <input type="text" class="form-control form_inputMain" placeholder="Kilogram (kg)"
-                                       id="weight" aria-describedby="emailHelp" name="weight" value="" fdprocessedid="li4wk">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row form_row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="mb-3">
-                        <div class="row">
-                            <div class="col-6"><label for="exampleInputPassword1" class="form_label">Occupation</label></div>
-                            <div class="col-6"><label for="exampleInputPassword1" class="form_label">Phone Number</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <input type="text" class="form-control form_inputMain" placeholder="Civil Servant"
-                                       id="occupation" aria-describedby="emailHelp" name="occupation" value="" fdprocessedid="tpclt7j">
-                                <p style="color: red; font-size: 12px;"></p>
-                            </div>
-                            <div class="col-6">
-                                <input type="text" class="form-control form_inputMain" placeholder="0800000000"
-                                       id="phoneNumber" aria-describedby="emailHelp" name="phoneNumber" value="" fdprocessedid="lb7b5c">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="mb-3">
-                        <div class="row">
-                            <div class="col-6"><label for="exampleInputPassword1" class="form_label">Hair Colour</label></div>
-                            <div class="col-6"><label for="exampleInputPassword1" class="form_label">Colour of Eye</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="ant-select ant-select-borderless form_label css-j0nf2s ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                     name="hairColour"
-                                     style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
-                                    <div class="ant-select-selector">
-                                        <span class="ant-select-selection-search">
-                                            <input type="search"
-                                                   autocomplete="off" class="ant-select-selection-search-input" role="combobox"
-                                                   aria-haspopup="listbox" aria-owns="rc_select_8_list" aria-autocomplete="list"
-                                                   aria-controls="rc_select_8_list" aria-activedescendant="rc_select_8_list_0" readonly=""
-                                                   unselectable="on" value="" style="opacity: 0;" id="rc_select_8">
-                                        </span><span class="ant-select-selection-item" title="Black">Black</span>
-                                    </div><span class="ant-select-arrow" unselectable="on" aria-hidden="true" style="user-select: none;">
-                                        <span role="img" aria-label="down" class="anticon anticon-down ant-select-suffix">
-                                            <svg viewBox="64 64 896 896" focusable="false" data-icon="down" width="1em" height="1em"
-                                                 fill="currentColor" aria-hidden="true">
-                                                <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                    </span><span class="ant-select-clear" unselectable="on" aria-hidden="true"
-                                                 style="user-select: none;">
-                                        <span role="img" aria-label="close-circle"
-                                              class="anticon anticon-close-circle">
-                                            <svg viewBox="64 64 896 896" focusable="false"
-                                                 data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true">
-                                                <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                    </span>
-                                </div>
-                                <p style="color: red; font-size: 12px;"></p>
-                            </div>
-                            <div class="col-6">
-                                <div class="ant-select ant-select-borderless form_label css-j0nf2s ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                     name="eyeColour"
-                                     style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
-                                    <div class="ant-select-selector">
-                                        <span class="ant-select-selection-search">
-                                            <input type="search"
-                                                   autocomplete="off" class="ant-select-selection-search-input" role="combobox"
-                                                   aria-haspopup="listbox" aria-owns="rc_select_9_list" aria-autocomplete="list"
-                                                   aria-controls="rc_select_9_list" aria-activedescendant="rc_select_9_list_0" readonly=""
-                                                   unselectable="on" value="" style="opacity: 0;" id="rc_select_9">
-                                        </span><span class="ant-select-selection-item" title="Black">Black</span>
-                                    </div><span class="ant-select-arrow" unselectable="on" aria-hidden="true" style="user-select: none;">
-                                        <span role="img" aria-label="down" class="anticon anticon-down ant-select-suffix">
-                                            <svg viewBox="64 64 896 896" focusable="false" data-icon="down" width="1em" height="1em"
-                                                 fill="currentColor" aria-hidden="true">
-                                                <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                    </span><span class="ant-select-clear" unselectable="on" aria-hidden="true"
-                                                 style="user-select: none;">
-                                        <span role="img" aria-label="close-circle"
-                                              class="anticon anticon-close-circle">
-                                            <svg viewBox="64 64 896 896" focusable="false"
-                                                 data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true">
-                                                <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                    </span>
-                                </div>
-                                <p style="color: red; font-size: 12px;"></p>
                             </div>
                         </div>
                     </div>
@@ -526,14 +478,15 @@
                                      style="width: 100%; padding: 5.3px; border: 2px solid rgb(194, 194, 194); border-radius: 5px;">
                                     <div class="ant-select-selector">
                                         <span class="ant-select-selection-search">
-                                            <input type="search"
-                                                   autocomplete="off" class="ant-select-selection-search-input" role="combobox"
-                                                   aria-haspopup="listbox" aria-owns="rc_select_10_list" aria-autocomplete="list"
-                                                   aria-controls="rc_select_10_list" aria-activedescendant="rc_select_10_list_0" value=""
-                                                   id="rc_select_10">
+                                            <input type="text" @bind="@searchCourt" @oninput="SearchCourt" />
+
                                         </span><span class="ant-select-selection-placeholder">
-                                            Magistrate
-                                            Court
+                                           <select>
+                                                @foreach (var item in searchResults)
+                                                {
+                                                    <option value="@item">@item</option>
+                                                }
+                                            </select>
                                         </span>
                                     </div><span class="ant-select-arrow" unselectable="on" aria-hidden="true"
                                                 style="user-select: none;">
@@ -958,10 +911,27 @@
             </button>
         </div>
     </form>
-    </div>
+</div>
 
 
 @code {
+    CreateConvictRequest convict = new();
+
+    private string selectedCountry;
+    private string searchCourt;
+    private List<LookUpCourtResponse> searchResults = new List<LookUpCourtResponse>();
+    private string apiUrl = "https://possap-ccdb.ogtlprojects.com/api/LookUp/get-courts?q=";
+
+
+
+    private async Task<List<LookUpCourtResponse>> SearchCourt()
+    {
+        string endpoint = apiUrl + searchCourt;
+        HttpClient client = new HttpClient();
+        searchResults = await client.GetFromJsonAsync<List<LookUpCourtResponse>>(endpoint);
+        return searchResults ?? null;
+    }
+
     //private async task submitdata(createconvictrequest data)
     //{
     //    try

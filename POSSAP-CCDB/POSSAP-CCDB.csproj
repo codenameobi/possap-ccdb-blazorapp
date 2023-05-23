@@ -23,9 +23,31 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Widgets\BarChartEntriesoftheWeek.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Blazored.LocalStorage" Version="4.3.0" />
+    <PackageReference Include="Blazorise" Version="1.2.3" />
+    <PackageReference Include="Blazorise.AntDesign" Version="1.2.3" />
+    <PackageReference Include="Blazorise.Bootstrap" Version="1.2.3" />
+    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.2.3" />
+    <PackageReference Include="Chart.js" Version="3.7.1" />
+    <PackageReference Include="ChartJs.Blazor" Version="1.1.0" />
     <PackageReference Include="Fluxor.Blazor.Web" Version="5.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Widgets\BarChartEntriesoftheWeek.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Widgets\BarChartEntriesoftheWeek.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Widgets\BarChartEntriesoftheWeek.razor" />
   </ItemGroup>
 
 </Project>

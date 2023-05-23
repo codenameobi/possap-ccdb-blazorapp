@@ -9,6 +9,8 @@
       "POSSAP-CCDB/1.0.0": {
         "dependencies": {
           "Blazored.LocalStorage": "4.3.0",
+          "Chart.js": "3.7.1",
+          "ChartJs.Blazor": "1.1.0",
           "Fluxor.Blazor.Web": "5.7.0",
           "Newtonsoft.Json": "13.0.3"
         },
@@ -24,6 +26,20 @@
           "lib/net7.0/Blazored.LocalStorage.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Chart.js/3.7.1": {},
+      "ChartJs.Blazor/1.1.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "7.0.0",
+          "Microsoft.CSharp": "4.7.0",
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.1/ChartJs.Blazor.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.0"
           }
         }
       },
@@ -79,6 +95,7 @@
         }
       },
       "Microsoft.AspNetCore.Metadata/7.0.0": {},
+      "Microsoft.CSharp/4.7.0": {},
       "Microsoft.Extensions.DependencyInjection/7.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
@@ -117,6 +134,20 @@
       "sha512": "sha512-CfHp9SWN45cM/TM8uw4pELQBfCRtMssCMSOjsEXVWibeYBn36TLpzw+J1vsC2Su2BEQ3Et19A5+GqK1S3kHbTQ==",
       "path": "blazored.localstorage/4.3.0",
       "hashPath": "blazored.localstorage.4.3.0.nupkg.sha512"
+    },
+    "Chart.js/3.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gJunTMEueTNdA5Hp92J9sv363msSemW+GSy1VtbrwjxCaMrp+/mgB20EdVezbP34dbM+h+A8G5XbEuL6tOJoCw==",
+      "path": "chart.js/3.7.1",
+      "hashPath": "chart.js.3.7.1.nupkg.sha512"
+    },
+    "ChartJs.Blazor/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MUGYzS5FSx9r17sPVRlREPWU+1mFtggFaQtGKifQg30I48tx3OEDH3JZd07r+jKwtpN/h89HVUYy3IT2FS8ZEw==",
+      "path": "chartjs.blazor/1.1.0",
+      "hashPath": "chartjs.blazor.1.1.0.nupkg.sha512"
     },
     "Fluxor/5.7.0": {
       "type": "package",
@@ -173,6 +204,13 @@
       "sha512": "sha512-ut2azlKz7BQpCKu6AiwKEjMHpRWoD4qu2Ff/n6KagjFsyDAfZY7lgYJ158vr4O0jXet6pV1uF1q3jmXvki0OlA==",
       "path": "microsoft.aspnetcore.metadata/7.0.0",
       "hashPath": "microsoft.aspnetcore.metadata.7.0.0.nupkg.sha512"
+    },
+    "Microsoft.CSharp/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
+      "path": "microsoft.csharp/4.7.0",
+      "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
     },
     "Microsoft.Extensions.DependencyInjection/7.0.0": {
       "type": "package",

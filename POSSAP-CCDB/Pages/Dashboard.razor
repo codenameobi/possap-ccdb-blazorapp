@@ -6,6 +6,7 @@
 @using POSSAP_CCDB.Widgets;
 @using POSSAP_CCDB.Data.Response;
 
+@inject IUserService UserService
 @inject IDashboardService dashboardService
 
     <section class="main">
@@ -13,7 +14,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="d-flex flex-column">
-                        <h3 class="content_bar_title">Hello </h3>
+                        <h3 class="content_bar_title">Hello @AppUser.fullName</h3>
                         <p class="content_bar_subtitle">Here are your confidential information of convicts in the country.</p>
                     </div>
                 </div>
@@ -168,8 +169,7 @@
                     </div>
                     <div class="box_card_content">
                         <div class="p-2">
-                            <canvas role="img" height="394" width="789"
-                                    style="display: block; box-sizing: border-box; height: 263px; width: 526px;"></canvas>
+                            
                         </div>
                     </div>
                 </div>
@@ -185,17 +185,16 @@
 
 @code {
 
-    //[Inject]
-    //private IState<UserState> UserState { get; set; }
-
-    private AppUser AppUser {get; set;}
+    private AppUser AppUser = new();
 
     private DEConvictReportCountsResponseData report = new ();
 
     protected override async Task OnInitializedAsync()
     {
+        var user = await UserService.GetUserAsync();
+        AppUser = user ?? null;
+        
         var content = await dashboardService.GetDataEntryConvictReportCounts();
         report = content.data ?? null;
-        //var AppUser = UserState.Value.CurrentUser ?? null;
     }
 }

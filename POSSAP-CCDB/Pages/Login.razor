@@ -8,13 +8,15 @@
 @using POSSAP_CCDB.Data;
 @using Blazored.LocalStorage;
 @using POSSAP_CCDB.Data.State;
+@using POSSAP_CCDB.Interface;
 @using POSSAP_CCDB.Services;
 
 @inject IHttpClientFactory ClientFactory
 @inject ILocalStorageService localStorage
 @inject ILogger<Login> Logger
 
-@inject IDispatcher Dispatcher
+
+@inject IUserService UserService
 @inject NavigationManager navigationManager
 
 <div id="root">
@@ -26,7 +28,7 @@
                 <h3 class="sign_in_text">Sign In</h3>
             </div>
   
-            <EditForm Model="@user" OnValidSubmit="SignIn">
+            <EditForm Model="@userCredentials" OnValidSubmit="SignIn">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="mb-3">
@@ -36,7 +38,7 @@
                                     <img src="img/mail-f98b4767.svg" alt="lock" width="19" height="22">
                                 </span>
                                 <InputText type="email" class="form-control form_input_login" placeholder="johndoe@gmail.com"
-                                              id="convictUniqueId" required="" name="email" @bind-Value="@user.Email" />
+                                           id="convictUniqueId" required="" name="email" @bind-Value="@userCredentials.Email" />
                             </div>
                         </div>
                     </div>
@@ -48,8 +50,8 @@
                                     <img src="img/lock-ad92bcda.svg" alt="lock" width="19" height="22">
                                 </span>
                                 <InputText type="password" required="" class="form-control form_input_login" name="password"
-                                              placeholder="password" id="password" @bind-Value="@user.Password"/>
-                                <ValidationMessage For="@(() => user.Password)"/>
+                                           placeholder="password" id="password" @bind-Value="@userCredentials.Password" />
+                                <ValidationMessage For="@(() => userCredentials.Password)" />
                             </div>
                         </div>
                     </div>
@@ -73,7 +75,7 @@
     //[Inject]
     //private IState<UserState> UserState { get; set; }
 
-    LoginModel user = new ();
+    LoginModel userCredentials = new();
 
     public AppUser User { get; set; }
 
@@ -82,11 +84,11 @@
         try
         {
             Logger.LogInformation("HandleSubmit called");
-            var accessToken = await GetAccessTokenAsync(user);
-            //await localStorage.SetAccessTokenAsync(accessToken);
-            await SaveAccessToken(accessToken);
 
-            //Dispatcher.Dispatch(new UpdateUserAction(User));
+            var user = await AuthenticateUserAsync(userCredentials);
+            await SaveAccessToken(user.token);
+
+            await UserService.SetUserAsync(user);
 
             navigationManager.NavigateTo($"/dashboard");
         }
@@ -97,24 +99,21 @@
         }
     }
 
-    public static async Task<string> GetAccessTokenAsync(LoginModel user)
+    private async Task<AppUser?> AuthenticateUserAsync(LoginModel userCredentials)
     {
-
         using var httpClient = new HttpClient();
 
-        var jsonData = JsonSerializer.Serialize(user);
+        var jsonData = JsonSerializer.Serialize(userCredentials);
         var content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
         var response = await httpClient.PostAsync("https://possap-ccdb.ogtlprojects.com/api/Auth/login", content);
-            if (!response.IsSuccessStatusCode)
-            {
-                throw new Exception("Failed to fetch access token.");
-            }
-            response.ToString();
-            var responseContent = await response.Content.ReadAsStringAsync();
-            var tokenResponse = JsonSerializer.Deserialize<AppUser>(responseContent);
-            return tokenResponse.token;
-        
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception("Failed to fetch access token.");
+        }
 
+        var responseContent = await response.Content.ReadAsStringAsync();
+        var user = JsonSerializer.Deserialize<AppUser>(responseContent);
+        return user;
     }
 
     private async Task SaveAccessToken(string accessToken)

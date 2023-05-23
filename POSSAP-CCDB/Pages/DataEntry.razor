@@ -1,422 +1,105 @@
 ﻿@page "/data_entry"
+
 <section class="main">
-    <div class="data_entries_header">
-        <h3>JOHN DOE's List of Entries</h3>
-    </div>
-    <div>
-        <div class="nav d-flex justify-content-between navContent nav">
-            <div class="nav-item" style="margin-left: 15px;">
-                <a role="button" class="  nav_item nav-link" tabindex="0"
-                   href="https://ccdb-admin.ogtlprojects.com/data_entry#">All Entries (1)</a>
-            </div>
-            <div class="nav-item">
-                <a role="button" class="  nav_item nav-link" tabindex="0"
-                   href="https://ccdb-admin.ogtlprojects.com/data_entry#">Queried Entries (0)</a>
-            </div>
-            <div class="nav-item">
-                <a role="button" class="  nav_item nav-link" tabindex="0"
-                   href="https://ccdb-admin.ogtlprojects.com/data_entry#">Approved Entries (0)</a>
-            </div>
-            <div class="nav-item">
-                <a role="button" class="active  nav_item nav-link" tabindex="0"
-                   href="https://ccdb-admin.ogtlprojects.com/data_entry#">Incomplete Entries (1)</a>
-            </div>
-            <div class="nav-item">
-                <a role="button" class="  nav_item nav-link" tabindex="0"
-                   href="https://ccdb-admin.ogtlprojects.com/data_entry#">Pending Entries (0)</a>
+    <div class="row">
+        <div class="col-12">
+            <div class="data-entries-header">
+                <h3>JOHN DOE's List of Entries</h3>
             </div>
         </div>
-    </div>
-    <div class=" mt-2 data_entries_content">
-        <div class="d-flex gap-3 align-items-center">
-            <h3 class="data_entries_content_text"> Show</h3>
-            <div class="ant-select ant-select-borderless form_label css-j0nf2s ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
-                 style="width: 50%; padding: 5px; border: 2px solid rgb(194, 194, 194); border-radius: 5px; cursor: pointer;">
-                <div class="ant-select-selector">
-                    <span class="ant-select-selection-search">
-                        <input type="search"
-                               autocomplete="off" class="ant-select-selection-search-input" role="combobox" aria-haspopup="listbox"
-                               aria-owns="rc_select_0_list" aria-autocomplete="list" aria-controls="rc_select_0_list"
-                               aria-activedescendant="rc_select_0_list_0" value="" id="rc_select_0">
-                    </span><span class="ant-select-selection-item" title="30">30</span>
-                </div><span class="ant-select-arrow"
-                            unselectable="on" aria-hidden="true" style="user-select: none;">
-                    <span role="img" aria-label="down"
-                          class="anticon anticon-down ant-select-suffix">
-                        <svg viewBox="64 64 896 896" focusable="false"
-                             data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true">
-                            <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-                            </path>
-                        </svg>
-                    </span>
-                </span><span class="ant-select-clear" unselectable="on" aria-hidden="true"
-                             style="user-select: none;">
-                    <span role="img" aria-label="close-circle"
-                          class="anticon anticon-close-circle">
-                        <svg viewBox="64 64 896 896" focusable="false"
-                             data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true">
-                            <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z">
-                            </path>
-                        </svg>
-                    </span>
-                </span>
-            </div>
-            <h3 class="data_entries_content_text">Entries</h3>
-        </div>
-    </div>
-    <div>
-        <div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                <button type="button"
-                        class="ant-btn css-j0nf2s ant-btn-primary exportBtn" fdprocessedid="szkcrh">
-                    <span>
-                        Export to
-                        CSV
-                    </span>
-                </button><span class="ant-input-affix-wrapper customSearchInput css-j0nf2s"
-                               style="width: 60%;">
-                    <span class="ant-input-prefix">
-                        <span role="img" aria-label="search"
-                              class="anticon anticon-search">
-                            <svg viewBox="64 64 896 896" focusable="false" data-icon="search"
-                                 width="1em" height="1em" fill="currentColor" aria-hidden="true">
-                                <path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
-                                </path>
-                            </svg>
-                        </span>
-                    </span><input placeholder="Search this table..." class="ant-input css-j0nf2s" type="text"
-                                  value="" fdprocessedid="nhq06"><span class="ant-input-suffix">
-                        <span class="ant-input-clear-icon ant-input-clear-icon-hidden" role="button" tabindex="-1">
-                            <span role="img"
-                                  aria-label="close-circle" class="anticon anticon-close-circle">
-                                <svg viewBox="64 64 896 896"
-                                     focusable="false" data-icon="close-circle" width="1em" height="1em" fill="currentColor"
-                                     aria-hidden="true">
-                                    <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z">
-                                    </path>
-                                </svg>
-                            </span>
-                        </span>
-                    </span>
-                </span>
-            </div>
-            <div class="ant-table-wrapper table-striped-rows css-j0nf2s">
-                <div class="ant-spin-nested-loading css-j0nf2s">
-                    <div class="ant-spin-container">
-                        <div class="ant-table">
-                            <div class="ant-table-container">
-                                <div class="ant-table-content">
-                                    <table style="table-layout: auto;">
-                                        <colgroup></colgroup>
-                                        <thead class="ant-table-thead">
-                                            <tr>
-                                                <th class="ant-table-cell" scope="col">Image</th>
-                                                <th aria-label="Convict ID" class="ant-table-cell ant-table-column-has-sorters" tabindex="0"
-                                                    scope="col">
-                                                    <div class="ant-table-filter-column">
-                                                        <span class="ant-table-column-title">
-                                                            <div class="ant-table-column-sorters">
-                                                                <span class="ant-table-column-title">
-                                                                    Convict
-                                                                    ID
-                                                                </span><span class="ant-table-column-sorter ant-table-column-sorter-full">
-                                                                    <span class="ant-table-column-sorter-inner" aria-hidden="true">
-                                                                        <span role="img"
-                                                                              aria-label="caret-up"
-                                                                              class="anticon anticon-caret-up ant-table-column-sorter-up">
-                                                                            <svg viewBox="0 0 1024 1024" focusable="false" data-icon="caret-up" width="1em"
-                                                                                 height="1em" fill="currentColor" aria-hidden="true">
-                                                                                <path d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z">
-                                                                                </path>
-                                                                            </svg>
-                                                                        </span><span role="img" aria-label="caret-down"
-                                                                                     class="anticon anticon-caret-down ant-table-column-sorter-down">
-                                                                            <svg viewBox="0 0 1024 1024" focusable="false" data-icon="caret-down" width="1em"
-                                                                                 height="1em" fill="currentColor" aria-hidden="true">
-                                                                                <path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z">
-                                                                                </path>
-                                                                            </svg>
-                                                                        </span>
-                                                                    </span>
-                                                                </span>
-                                                            </div>
-                                                        </span><span role="button" tabindex="-1"
-                                                                     class="ant-dropdown-trigger ant-table-filter-trigger">
-                                                            <span role="img"
-                                                                  aria-label="search" class="anticon anticon-search">
-                                                                <svg viewBox="64 64 896 896"
-                                                                     focusable="false" data-icon="search" width="1em" height="1em" fill="currentColor"
-                                                                     aria-hidden="true">
-                                                                    <path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
-                                                                    </path>
-                                                                </svg>
-                                                            </span>
-                                                        </span>
-                                                    </div>
-                                                </th>
-                                                <th aria-label="Full Name" class="ant-table-cell ant-table-column-has-sorters" tabindex="0"
-                                                    scope="col">
-                                                    <div class="ant-table-filter-column">
-                                                        <span class="ant-table-column-title">
-                                                            <div class="ant-table-column-sorters">
-                                                                <span class="ant-table-column-title">
-                                                                    Full
-                                                                    Name
-                                                                </span><span class="ant-table-column-sorter ant-table-column-sorter-full">
-                                                                    <span class="ant-table-column-sorter-inner" aria-hidden="true">
-                                                                        <span role="img"
-                                                                              aria-label="caret-up"
-                                                                              class="anticon anticon-caret-up ant-table-column-sorter-up">
-                                                                            <svg viewBox="0 0 1024 1024" focusable="false" data-icon="caret-up" width="1em"
-                                                                                 height="1em" fill="currentColor" aria-hidden="true">
-                                                                                <path d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z">
-                                                                                </path>
-                                                                            </svg>
-                                                                        </span><span role="img" aria-label="caret-down"
-                                                                                     class="anticon anticon-caret-down ant-table-column-sorter-down">
-                                                                            <svg viewBox="0 0 1024 1024" focusable="false" data-icon="caret-down" width="1em"
-                                                                                 height="1em" fill="currentColor" aria-hidden="true">
-                                                                                <path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z">
-                                                                                </path>
-                                                                            </svg>
-                                                                        </span>
-                                                                    </span>
-                                                                </span>
-                                                            </div>
-                                                        </span><span role="button" tabindex="-1"
-                                                                     class="ant-dropdown-trigger ant-table-filter-trigger">
-                                                            <span role="img"
-                                                                  aria-label="search" class="anticon anticon-search">
-                                                                <svg viewBox="64 64 896 896"
-                                                                     focusable="false" data-icon="search" width="1em" height="1em" fill="currentColor"
-                                                                     aria-hidden="true">
-                                                                    <path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
-                                                                    </path>
-                                                                </svg>
-                                                            </span>
-                                                        </span>
-                                                    </div>
-                                                </th>
-                                                <th class="ant-table-cell" scope="col">
-                                                    <div class="ant-table-filter-column">
-                                                        <span class="ant-table-column-title">Age</span><span role="button" tabindex="-1"
-                                                                                                             class="ant-dropdown-trigger ant-table-filter-trigger">
-                                                            <span role="img"
-                                                                  aria-label="search" class="anticon anticon-search">
-                                                                <svg viewBox="64 64 896 896"
-                                                                     focusable="false" data-icon="search" width="1em" height="1em" fill="currentColor"
-                                                                     aria-hidden="true">
-                                                                    <path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
-                                                                    </path>
-                                                                </svg>
-                                                            </span>
-                                                        </span>
-                                                    </div>
-                                                </th>
-                                                <th aria-label="Gender" class="ant-table-cell ant-table-column-has-sorters" tabindex="0"
-                                                    scope="col">
-                                                    <div class="ant-table-filter-column">
-                                                        <span class="ant-table-column-title">
-                                                            <div class="ant-table-column-sorters">
-                                                                <span class="ant-table-column-title">Gender</span><span class="ant-table-column-sorter ant-table-column-sorter-full">
-                                                                    <span class="ant-table-column-sorter-inner" aria-hidden="true">
-                                                                        <span role="img"
-                                                                              aria-label="caret-up"
-                                                                              class="anticon anticon-caret-up ant-table-column-sorter-up">
-                                                                            <svg viewBox="0 0 1024 1024" focusable="false" data-icon="caret-up" width="1em"
-                                                                                 height="1em" fill="currentColor" aria-hidden="true">
-                                                                                <path d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z">
-                                                                                </path>
-                                                                            </svg>
-                                                                        </span><span role="img" aria-label="caret-down"
-                                                                                     class="anticon anticon-caret-down ant-table-column-sorter-down">
-                                                                            <svg viewBox="0 0 1024 1024" focusable="false" data-icon="caret-down" width="1em"
-                                                                                 height="1em" fill="currentColor" aria-hidden="true">
-                                                                                <path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z">
-                                                                                </path>
-                                                                            </svg>
-                                                                        </span>
-                                                                    </span>
-                                                                </span>
-                                                            </div>
-                                                        </span><span role="button" tabindex="-1"
-                                                                     class="ant-dropdown-trigger ant-table-filter-trigger">
-                                                            <span role="img"
-                                                                  aria-label="search" class="anticon anticon-search">
-                                                                <svg viewBox="64 64 896 896"
-                                                                     focusable="false" data-icon="search" width="1em" height="1em" fill="currentColor"
-                                                                     aria-hidden="true">
-                                                                    <path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
-                                                                    </path>
-                                                                </svg>
-                                                            </span>
-                                                        </span>
-                                                    </div>
-                                                </th>
-                                                <th class="ant-table-cell hideColumn" scope="col">NIN</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Agency In Charge</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Amount</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Comment</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Court of Conviction</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Court State</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Date of birth</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">DNA Reference NO</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Eye Colour</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Hair Colour</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Height</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Address</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Marital Status</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Marks</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Month Sentenced</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Year Sentenced</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Nationality</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">State</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Tribe</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Occupation</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Offence Category</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Offence Of Conviction</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Phone Number</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Place Of Birth</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Presiding Judge</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Special Instructions</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Weight</th>
-                                                <th class="ant-table-cell hideColumn" scope="col">Status</th>
-                                                <th aria-label="Status" class="ant-table-cell ant-table-column-has-sorters" tabindex="0"
-                                                    scope="col">
-                                                    <div class="ant-table-column-sorters">
-                                                        <span class="ant-table-column-title">Status</span><span class="ant-table-column-sorter ant-table-column-sorter-full">
-                                                            <span class="ant-table-column-sorter-inner" aria-hidden="true">
-                                                                <span role="img"
-                                                                      aria-label="caret-up"
-                                                                      class="anticon anticon-caret-up ant-table-column-sorter-up">
-                                                                    <svg viewBox="0 0 1024 1024" focusable="false" data-icon="caret-up" width="1em"
-                                                                         height="1em" fill="currentColor" aria-hidden="true">
-                                                                        <path d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z">
-                                                                        </path>
-                                                                    </svg>
-                                                                </span><span role="img" aria-label="caret-down"
-                                                                             class="anticon anticon-caret-down ant-table-column-sorter-down">
-                                                                    <svg viewBox="0 0 1024 1024" focusable="false" data-icon="caret-down" width="1em"
-                                                                         height="1em" fill="currentColor" aria-hidden="true">
-                                                                        <path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z">
-                                                                        </path>
-                                                                    </svg>
-                                                                </span>
-                                                            </span>
-                                                        </span>
-                                                    </div>
-                                                </th>
-                                                <th class="ant-table-cell" scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="ant-table-tbody">
-                                            <tr class="ant-table-row ant-table-row-level-0">
-                                                <td class="ant-table-cell">
-                                                    <div class="ant-image css-j0nf2s" style="width: 50px; height: 50px;">
-                                                        <img class="ant-image-img"
-                                                             src="./possap-convict-data_files/0e1ff645-a9c6-48e6-8065-3e3d0b1de54d.jpeg" width="50"
-                                                             height="50" style="height: 50px; object-fit: cover;">
-                                                        <div class="ant-image-mask">
-                                                            <div class="ant-image-mask-info">
-                                                                <span role="img" aria-label="eye"
-                                                                      class="anticon anticon-eye">
-                                                                    <svg viewBox="64 64 896 896" focusable="false"
-                                                                         data-icon="eye" width="1em" height="1em" fill="currentColor" aria-hidden="true">
-                                                                        <path d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z">
-                                                                        </path>
-                                                                    </svg>
-                                                                </span>Preview
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="ant-table-cell">1234567892</td>
-                                                <td class="ant-table-cell">John Doe</td>
-                                                <td class="ant-table-cell"><span>32</span></td>
-                                                <td class="ant-table-cell">Male</td>
-                                                <td class="ant-table-cell hideColumn"></td>
-                                                <td class="ant-table-cell hideColumn">Federal Road Safety Corps (FRSC)</td>
-                                                <td class="ant-table-cell hideColumn">60000</td>
-                                                <td class="ant-table-cell hideColumn"></td>
-                                                <td class="ant-table-cell hideColumn">Federal High Court</td>
-                                                <td class="ant-table-cell hideColumn">Anambra</td>
-                                                <td class="ant-table-cell hideColumn">1990-11-11T00:00:00</td>
-                                                <td class="ant-table-cell hideColumn">1234321086</td>
-                                                <td class="ant-table-cell hideColumn">Black</td>
-                                                <td class="ant-table-cell hideColumn">Black</td>
-                                                <td class="ant-table-cell hideColumn">88</td>
-                                                <td class="ant-table-cell hideColumn">
-                                                    No 30 Sylvester Ogbaga Road Abakaliki, Ebonyi State
-                                                </td>
-                                                <td class="ant-table-cell hideColumn">Single</td>
-                                                <td class="ant-table-cell hideColumn">None</td>
-                                                <td class="ant-table-cell hideColumn">8</td>
-                                                <td class="ant-table-cell hideColumn">0</td>
-                                                <td class="ant-table-cell hideColumn">Nigeria</td>
-                                                <td class="ant-table-cell hideColumn">Bauchi</td>
-                                                <td class="ant-table-cell hideColumn">Bambora</td>
-                                                <td class="ant-table-cell hideColumn">Banker</td>
-                                                <td class="ant-table-cell hideColumn">Copyright - Currency Counterfeit</td>
-                                                <td class="ant-table-cell hideColumn">
-                                                    Exporting counterfeit current coin - Forfeiture of
-                                                    copies or plates
-                                                </td>
-                                                <td class="ant-table-cell hideColumn">+2347062746869</td>
-                                                <td class="ant-table-cell hideColumn">Bayelsa</td>
-                                                <td class="ant-table-cell hideColumn">ACHEGBULU OLUBUNMI SNR MAGISTRATE I.</td>
-                                                <td class="ant-table-cell hideColumn"></td>
-                                                <td class="ant-table-cell hideColumn">76</td>
-                                                <td class="ant-table-cell hideColumn">INCOMPLETE</td>
-                                                <td class="ant-table-cell">
-                                                    <span>
-                                                        <span class="ant-tag ant-tag-volcano css-j0nf2s">INCOMPLETE</span>
-                                                    </span>
-                                                </td>
-                                                <td class="ant-table-cell">
-                                                    <div class="dropdown dropstart">
-                                                        <a data-toggle="dropdown" aria-haspopup="true"
-                                                           href="https://ccdb-admin.ogtlprojects.com/data_entry#" class="nav-link"
-                                                           aria-expanded="false">
-                                                            <span role="img" aria-label="more" class="anticon anticon-more"
-                                                                  style="font-size: 20px; cursor: pointer;">
-                                                                <svg viewBox="64 64 896 896"
-                                                                     focusable="false" data-icon="more" width="1em" height="1em" fill="currentColor"
-                                                                     aria-hidden="true">
-                                                                    <path d="M456 231a56 56 0 10112 0 56 56 0 10-112 0zm0 280a56 56 0 10112 0 56 56 0 10-112 0zm0 280a56 56 0 10112 0 56 56 0 10-112 0z">
-                                                                    </path>
-                                                                </svg>
-                                                            </span>
-                                                        </a>
-                                                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
-                                                            <button type="button" tabindex="0" role="menuitem" class="table_action dropdown-item">
-                                                                <span class="table_action">View Details</span>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="col-lg-12">
+            <div class="nav d-flex justify-content-between navContent nav">
+                <div class="nav-item active">
+                    <a class="nav-link" href="#">All Entries (1)</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" href="#">Queried Entries (0)</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" href="#">Approved Entries (0)</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" href="#">Incomplete Entries (1)</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" href="#">Pending Entries </a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" href="#">Queried Entries (0)</a>
                 </div>
             </div>
+
         </div>
-        <div class="d-flex justify-content-between mt-4">
-            <h3 class="data_entries_content_text">Showing 1 to 1 of 1 Entries</h3>
-            <div class="d-flex gap-3 align-items-center">
-                <button disabled="" class="data_btn data_entries_content_text">
-                    Previous
-                </button>
-                <div class="spanBox">1</div><button class="data_btn data_entries_content_text next"
-                                                    fdprocessedid="u2t43g">
-                    Next
-                </button>
-            </div>
-            <div></div>
+    </div>
+
+    <div class="data-entries-content row">
+        <div class="col-6">
+            <h3 class="data_entries_content_text"> Show</h3>
         </div>
+        <div class="col-6">
+            <input type="text" />
+            <!-- <input type="text" class="form-control" @bind="@courtofconviction" @oninput="SearchCourtOfConviction">-->
+            <select>
+                <!-- @foreach (var item in searchResults)
+                {
+                    <option value=""@item>@item</option>
+                } -->
+            </select>
+        </div>
+        <div class="col-12">
+            <h3 class="data_entries_content_text"> Entries</h3>
+        </div>
+    </div>
+    <div class="data-entries-action row">
+        <div class="col-6">
+            <button>
+                <span>
+                    Export to
+                    CSV
+                </span>
+            </button>
+        </div>
+        <div class="col-6">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="data-entries-table">
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="bg-primary">
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Convict ID</th>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>twitter</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </section>
 

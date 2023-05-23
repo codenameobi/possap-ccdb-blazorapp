@@ -8,6 +8,12 @@ using POSSAP_CCDB.Interface;
 using POSSAP_CCDB.Services;
 using System.Net.Http.Headers;
 using Fluxor;
+using Blazorise;
+using Blazorise.Bootstrap;
+using Blazorise.Icons.FontAwesome;
+
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,10 +27,19 @@ builder.Services.AddBlazoredLocalStorage();
 
 builder.Services.AddFluxor(options => options.ScanAssemblies(typeof(Program).Assembly));
 
+builder.Services
+    .AddBlazorise(options =>
+    {
+        options.Immediate = true;
+    })
+    .AddBootstrapProviders()
+    .AddFontAwesomeIcons();
+
 builder.Services.AddScoped<AppUser>();
 builder.Services.AddScoped<UserState>();
 builder.Services.AddScoped<LocalStorageService>();
 builder.Services.AddScoped<IDashboardService, DashboardService>();
+builder.Services.AddSingleton<IUserService, UserService>();
 
 
 

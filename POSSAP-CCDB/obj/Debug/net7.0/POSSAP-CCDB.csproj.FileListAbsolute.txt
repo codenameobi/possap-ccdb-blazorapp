@@ -36,3 +36,4 @@ C:\Users\OGTL SD-0021\Documents\POSSAP-CCDB\POSSAP-CCDB\obj\Debug\net7.0\ref\POS
 C:\Users\OGTL SD-0021\Documents\POSSAP-CCDB\POSSAP-CCDB\bin\Debug\net7.0\Data\recentconvicts.json
 C:\Users\OGTL SD-0021\Documents\POSSAP-CCDB\POSSAP-CCDB\bin\Debug\net7.0\Fluxor.dll
 C:\Users\OGTL SD-0021\Documents\POSSAP-CCDB\POSSAP-CCDB\bin\Debug\net7.0\Fluxor.Blazor.Web.dll
+C:\Users\OGTL SD-0021\Documents\POSSAP-CCDB\POSSAP-CCDB\bin\Debug\net7.0\ChartJs.Blazor.dll

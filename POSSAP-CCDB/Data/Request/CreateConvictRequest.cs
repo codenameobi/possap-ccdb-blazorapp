@@ -40,5 +40,10 @@
         public string Weight { get; set; }
         public string PlaceOfBirth { get; set; }
         public string DnaReferenceNo { get; set; } = String.Empty;
+        public int? LGAId { get; set; }
+        public int? WardId { get; set; }
+        public string? JudgeName { get; set; }
+        public string? ChargeNumber { get; set; }
+        public string? BVN { get; set; }
     }
 }
